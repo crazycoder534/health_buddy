@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:health_buddy/health%20buddy/constants.dart';
+import 'package:health_buddy/health%20buddy/utils/constants.dart';
 import 'package:svg_icon/svg_icon.dart';
 
 class CHIButton extends StatelessWidget {
@@ -130,25 +130,5 @@ class PhoneField extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-class CHIRouter {
-  static push(BuildContext context, Widget nextPage) {
-    return Navigator.push(
-        context, MaterialPageRoute(builder: (context) => nextPage));
-  }
-
-  static pushReplacement(BuildContext context, Widget nextPage) {
-    return Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => nextPage));
-  }
-
-  static pushNamed(BuildContext context, String routeName) {
-    return Navigator.pushNamed(context, routeName);
-  }
-
-  static pop(BuildContext context) {
-    return Navigator.pop(context);
   }
 }
