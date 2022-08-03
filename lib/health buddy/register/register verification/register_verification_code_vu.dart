@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:health_buddy/health%20buddy/utils/chi_router.dart';
 import 'package:health_buddy/health%20buddy/utils/constants.dart';
 import 'package:health_buddy/health%20buddy/utils/widgets.dart';
 import 'package:stacked/stacked.dart';
+import '../../home/home_vu.dart';
 import 'register_verification_code_vm.dart';
 
 class RegisterVerifyCodeVU
@@ -39,15 +41,17 @@ class RegisterVerifyCodeVU
               ),
               const Spacer(),
               Row(
-                children: const [
-                  Expanded(
+                children: [
+                  const Expanded(
                     child: Text(
                       'Didn\'t get the code?',
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  ResendButton()
+                  ResendButton(
+                    onTap: () => CHIRouter.push(context, const HomeVU()),
+                  )
                 ],
               ),
             ],

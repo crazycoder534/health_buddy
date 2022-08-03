@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:health_buddy/health%20buddy/home/home_vu.dart';
+import 'package:health_buddy/health%20buddy/register/register_name_vu.dart';
+import 'package:health_buddy/health%20buddy/utils/chi_router.dart';
 import 'package:health_buddy/health%20buddy/utils/constants.dart';
 import 'package:health_buddy/health%20buddy/utils/widgets.dart';
 import 'package:stacked/stacked.dart';
@@ -19,69 +22,60 @@ class LoginVU extends ViewModelBuilderWidget<LoginVM> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text('Welcome to Health Buddy', style: titleTextStyle),
-              const SizedBox(
-                height: 4,
-              ),
-              SizedBox(
-                width: 250,
-                child: Text('Please Enter Your Name & Mobile Number',
-                    style: subTitleTextStyle),
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-              TextField(
-                decoration: InputDecoration(
-                    hintText: 'Full Name',
-                    enabledBorder: chiOutlineBorder,
-                    focusedBorder: chiOutlineBorder),
-              ),
-              const SizedBox(
-                height: 12,
-              ),
-              TextField(
-                style: const TextStyle(color: Colors.black),
-                decoration: InputDecoration(
-                    hintText: 'Full Name',
-                    enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey[400]!)),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey[800]!))),
+              const SizedBox(height: 4),
+              Text('Please Enter Your Name & Mobile Number',
+                  style: subTitleTextStyle),
+              const SizedBox(height: 24),
+              const CHITextField(hintText: 'Full Name'),
+              const SizedBox(height: 12),
+              CHITextField(
+                hintText: 'xxx xxxx xxx',
+                items: items,
+                value: viewModel.val,
+                onChanged: viewModel.onMenuChanged,
               ),
               const SizedBox(
                 height: 200,
               ),
               Align(
                   alignment: Alignment.center,
-                  child: CHIButton(onTap: () {}, btnLabel: 'Login')),
-              const SizedBox(height: 24),
+                  child: CHIButton(
+                      onTap: () =>
+                          CHIRouter.pushReplacement(context, const HomeVU()),
+                      btnLabel: 'Login')),
+              const SizedBox(height: 36),
+              Align(
+                alignment: Alignment.center,
+                child: Text('Or login with',
+                    style: btnTextStyle.copyWith(fontSize: 14, color: grey400)),
+              ),
+              const SizedBox(height: 36),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 80,
-                    height: 44,
-                    color: grey100,
-                    child: const Icon(Icons.email),
-                  ),
-                  const SizedBox(width: 24),
-                  Container(
-                    width: 80,
-                    height: 44,
-                    color: grey100,
-                    child: const Icon(Icons.facebook),
-                  )
+                children: const [
+                  SocialButton(icon: 'assets/icons/gmail.svg'),
+                  SizedBox(width: 16), // Icons will be changed
+                  SocialButton(icon: 'assets/icons/facebook.svg'),
                 ],
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 36),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('New to Health Buddy?', style: subTitleTextStyle),
+                  Text('New to Health Buddy?',
+                      style: btnTextStyle.copyWith(
+                          color: grey400, fontWeight: FontWeight.w400)),
                   const SizedBox(
                     width: 4,
                   ),
-                  Text('Register', style: titleTextStyle),
+                  GestureDetector(
+                    onTap: () {
+                      CHIRouter.push(context, const RegisterNameVU());
+                    },
+                    child: Text('Register',
+                        style: btnTextStyle.copyWith(
+                            color: grey800, fontWeight: FontWeight.w700)),
+                  ),
                 ],
               )
             ],

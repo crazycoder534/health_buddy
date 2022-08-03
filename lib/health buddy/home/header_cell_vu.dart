@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:svg_icon/svg_icon.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:health_buddy/health%20buddy/utils/constants.dart';
 
 class HeaderCellVU extends StatelessWidget {
   const HeaderCellVU({Key? key}) : super(key: key);
@@ -10,20 +11,14 @@ class HeaderCellVU extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(24, 24, 24, 24),
       child: Row(
         children: [
-          const Text(
+          Text(
             'Welcome',
-            style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w400,
-                color: Color(0xff1D2939)),
+            style: subTitleTextStyle.copyWith(fontSize: 14, color: grey800),
           ),
           const SizedBox(width: 8),
-          const Text(
+          Text(
             'Shah Zaman',
-            style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-                color: Color(0xff1D2939)),
+            style: titleTextStyle,
           ),
           const Spacer(),
           GestureDetector(
@@ -61,7 +56,7 @@ Widget actionButtonContainer(Color? color,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SvgIcon(
+        SvgPicture.asset(
           imageUrl,
           width: width,
           height: height,

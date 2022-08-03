@@ -34,8 +34,7 @@ class RegisterNameVU extends ViewModelBuilderWidget<RegisterNameVM> {
               const SizedBox(
                 height: 24,
               ),
-              const CHITextField(
-                  hintText: 'Enter Full Name', isForPhone: false),
+              const CHITextField(hintText: 'Enter Full Name'),
               const Spacer(),
               Align(
                 alignment: Alignment.center,
