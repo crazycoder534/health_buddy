@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:health_buddy/health%20buddy/register/register_number_vu.dart';
+import 'package:health_buddy/health%20buddy/utils/chi_router.dart';
 import 'package:health_buddy/health%20buddy/utils/constants.dart';
 import 'package:health_buddy/health%20buddy/utils/widgets.dart';
 import 'package:stacked/stacked.dart';
@@ -37,7 +39,10 @@ class RegisterNameVU extends ViewModelBuilderWidget<RegisterNameVM> {
               const Spacer(),
               Align(
                 alignment: Alignment.center,
-                child: CHIButton(onTap: () {}, btnLabel: 'Continue '),
+                child: CHIButton(
+                    onTap: () =>
+                        CHIRouter.push(context, const RegisterNumberVU()),
+                    btnLabel: 'Continue '),
               ),
             ],
           ),

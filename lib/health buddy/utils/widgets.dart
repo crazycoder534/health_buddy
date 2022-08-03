@@ -363,3 +363,81 @@ Widget chiTextButton({
         ),
       ));
 }
+
+class SkipButton extends StatelessWidget {
+  final VoidCallback? onTap;
+  const SkipButton({Key? key, this.onTap}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Text(
+        'Skip',
+        style: TextStyle(fontSize: 14, color: Colors.lightBlue[500]),
+      ),
+    );
+  }
+}
+
+class OTPBox extends StatelessWidget {
+  final int value;
+  const OTPBox({Key? key, this.value = 0}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 48.0,
+      height: 48.0,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(5),
+          border: Border.all(
+            color: Colors.grey[400]!,
+          )),
+      child: Text(
+        value.toString(),
+        style: const TextStyle(
+          fontSize: 30.0,
+          color: Color(0xffD0D5DD),
+        ),
+      ),
+    );
+  }
+}
+
+class FormFieldTile extends StatelessWidget {
+  const FormFieldTile({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: const Icon(Icons.calendar_today),
+      title: Text(
+        'Date of birth',
+        style: subTitleTextStyle,
+      ),
+    );
+  }
+}
+
+class ResendButton extends StatelessWidget {
+  final VoidCallback? onTap;
+  const ResendButton({Key? key, this.onTap}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          color: grey100,
+        ),
+        height: 36,
+        width: 78,
+        child: const Center(child: Text('Resend')),
+      ),
+    );
+  }
+}
