@@ -24,18 +24,17 @@ class HeaderCellVU extends StatelessWidget {
           GestureDetector(
             child: actionButtonContainer(
                 const Color(0xffEB5757).withOpacity(0.1),
-                imageUrl: 'assets/sos.svg',
+                imageUrl: 'assets/images/app assets/sos.svg',
                 width: 10,
                 height: 10),
             onTap: () {},
           ),
           const SizedBox(width: 16),
           GestureDetector(
-            child: actionButtonContainer(
-                const Color(0xff82B1FF).withOpacity(0.1),
+            child: actionButtonContainer(blue500.withOpacity(0.1),
                 width: 16,
                 height: 18,
-                imageUrl: 'assets/bell.svg'),
+                imageUrl: 'assets/images/app assets/bell.svg'),
             onTap: () {},
           )
         ],

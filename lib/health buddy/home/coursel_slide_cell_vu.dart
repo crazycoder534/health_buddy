@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:health_buddy/health%20buddy/utils/constants.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../utils/widgets.dart';
 import 'home_vm.dart';
@@ -45,11 +46,11 @@ Widget buildindicator(HomeVM viewModel) {
     child: AnimatedSmoothIndicator(
       activeIndex: viewModel.current,
       count: 3,
-      effect: const JumpingDotEffect(
-          activeDotColor: Color(0xffBBDEFB),
+      effect: JumpingDotEffect(
+          activeDotColor: blue500,
           dotHeight: 6,
           dotWidth: 6,
-          dotColor: Color(0xffE3EEFF)),
+          dotColor: blue100),
     ),
   );
 }

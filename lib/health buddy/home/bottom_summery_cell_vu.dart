@@ -22,8 +22,8 @@ class BottomSummeryCellVU extends StatelessWidget {
             width: 95.48,
             title: 'Appointments',
             title2: 'Check Symptoms',
-            imageUrl: 'assets/group2.svg',
-            imageUrl2: 'assets/group3.svg',
+            imageUrl: 'assets/images/app assets/group2.svg',
+            imageUrl2: 'assets/images/app assets/group3.svg',
           ),
           const SizedBox(height: 12),
           Row(
@@ -31,14 +31,14 @@ class BottomSummeryCellVU extends StatelessWidget {
               Expanded(
                 child: chiContainer(
                     title: 'My Health',
-                    imageUrl: 'assets/group4.svg',
+                    imageUrl: 'assets/images/app assets/group4.svg',
                     width: 70),
               ),
               const SizedBox(width: 12),
               Expanded(
                 child: chiContainer(
                   title: 'Subscriptions',
-                  imageUrl: 'assets/group5.svg',
+                  imageUrl: 'assets/images/app assets/group5.svg',
                   width: 70,
                 ),
               ),
@@ -50,14 +50,14 @@ class BottomSummeryCellVU extends StatelessWidget {
               Expanded(
                 child: chiContainer(
                     title: 'Messages',
-                    imageUrl: 'assets/messages.svg',
+                    imageUrl: 'assets/images/app assets/messages.svg',
                     width: 70),
               ),
               const SizedBox(width: 12),
               Expanded(
                 child: chiContainer(
                     title: 'Command Center',
-                    imageUrl: 'assets/phone.svg',
+                    imageUrl: 'assets/images/app assets/phone.svg',
                     width: 70),
               ),
             ],
@@ -71,7 +71,7 @@ class BottomSummeryCellVU extends StatelessWidget {
                   child: chiContainer(
                       width: 70,
                       title: "Settings",
-                      imageUrl: "assets/settings.svg"))
+                      imageUrl: "assets/images/app assets/settings.svg"))
             ],
           )
         ],
