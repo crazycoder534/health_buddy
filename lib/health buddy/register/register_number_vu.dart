@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:health_buddy/health%20buddy/register/register%20verification/register_verification_code_vu.dart';
+import 'package:health_buddy/health%20buddy/utils/chi_router.dart';
 import 'package:health_buddy/health%20buddy/utils/constants.dart';
 import 'package:health_buddy/health%20buddy/utils/widgets.dart';
 import 'package:stacked/stacked.dart';
@@ -72,7 +74,12 @@ class RegisterNumberVU extends ViewModelBuilderWidget<RegisterNumberVM> {
               const SizedBox(height: 24),
               Align(
                 alignment: Alignment.center,
-                child: CHIButton(onTap: () {}, btnLabel: 'Send OTP'),
+                child: CHIButton(
+                    onTap: () {
+                      CHIRouter.pushReplacement(
+                          context, const RegisterVerifyCodeVU());
+                    },
+                    btnLabel: 'Send OTP'),
               ),
             ],
           ),
@@ -86,5 +93,3 @@ class RegisterNumberVU extends ViewModelBuilderWidget<RegisterNumberVM> {
     return RegisterNumberVM();
   }
 }
-
-List<String> items = ['Uk', 'US', 'PK'];

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'health buddy/register/register_name_vu.dart';
+import 'health buddy/utils/constants.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(fontFamily: 'Inter'),
+      theme: CHITheme,
       home: const RegisterNameVU(),
     );
   }

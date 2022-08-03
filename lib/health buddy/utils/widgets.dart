@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:health_buddy/health%20buddy/utils/constants.dart';
-import 'package:svg_icon/svg_icon.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+import 'constants.dart';
 
 class CHIButton extends StatelessWidget {
   final VoidCallback onTap;
@@ -50,7 +51,7 @@ class ArrowButton extends StatelessWidget {
           color: blue500,
           borderRadius: BorderRadius.circular(4),
         ),
-        child: SvgIcon(
+        child: SvgPicture.asset(
           leftAngle ? 'assets/icons/back.svg' : 'assets/icons/next.svg',
           color: whiteColor,
         ),
@@ -60,7 +61,6 @@ class ArrowButton extends StatelessWidget {
 }
 
 class CHITextField extends StatelessWidget {
-  final bool isForPhone;
   final List<String>? items;
   final void Function(String?)? onChanged;
   final String value;
@@ -70,7 +70,6 @@ class CHITextField extends StatelessWidget {
       this.items,
       this.onChanged,
       this.value = 'PK',
-      this.isForPhone = true,
       required this.hintText})
       : super(key: key);
 
@@ -81,8 +80,8 @@ class CHITextField extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 10),
       height: 56,
       decoration: BoxDecoration(
-          color: Theme.of(context).scaffoldBackgroundColor,
-          border: Border.all(color: grey100, width: 1),
+          color: cardColor,
+          border: Border.all(color: grey100, width: 1.0),
           borderRadius: BorderRadius.circular(8),
           boxShadow: [
             BoxShadow(
@@ -100,20 +99,18 @@ class CHITextField extends StatelessWidget {
           ]),
       child: Row(
         children: [
-          isForPhone
+          items != null
               ? DropdownButton(
                   underline: const SizedBox.shrink(),
-                  icon: const SvgIcon('assets/icons/arrow_down.svg'),
+                  icon: SvgPicture.asset('assets/icons/arrow_down.svg'),
                   iconSize: 8,
                   value: value,
-                  items: items != null
-                      ? items!.map((String item) {
-                          return DropdownMenuItem(
-                            value: item,
-                            child: Text(item),
-                          );
-                        }).toList()
-                      : null,
+                  items: items!.map((String item) {
+                    return DropdownMenuItem(
+                      value: item,
+                      child: Text(item),
+                    );
+                  }).toList(),
                   onChanged: onChanged,
                 )
               : const SizedBox.shrink(),
@@ -121,7 +118,7 @@ class CHITextField extends StatelessWidget {
             child: TextField(
               style: subTitleTextStyle,
               keyboardType:
-                  isForPhone ? TextInputType.phone : TextInputType.name,
+                  items != null ? TextInputType.phone : TextInputType.name,
               decoration: InputDecoration(
                 border: InputBorder.none,
                 contentPadding: const EdgeInsets.only(left: 8),
@@ -174,7 +171,7 @@ Widget chiBanner(
             ),
           ],
         ),
-        SvgIcon(
+        SvgPicture.asset(
           imageUrl,
           width: 82,
           height: 82,
@@ -256,14 +253,10 @@ Widget innerColumn({
     children: [
       Text(
         title,
-        style: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w400,
-          color: Color(0xff1D2939),
-        ),
+        style: titleTextStyle,
       ),
       const SizedBox(height: 8.0),
-      SvgIcon(
+      SvgPicture.asset(
         imageUrl,
         width: width,
       ),
@@ -319,7 +312,7 @@ Widget innerRow({
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
-      SvgIcon(
+      SvgPicture.asset(
         imageUrl,
       ),
       const SizedBox(
@@ -437,6 +430,26 @@ class ResendButton extends StatelessWidget {
         height: 36,
         width: 78,
         child: const Center(child: Text('Resend')),
+      ),
+    );
+  }
+}
+
+class SocialButton extends StatelessWidget {
+  final VoidCallback? onTap;
+  final String icon;
+  const SocialButton({Key? key, this.onTap, required this.icon})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: 80,
+        height: 44,
+        color: grey100,
+        child: SvgPicture.asset(icon, fit: BoxFit.scaleDown),
       ),
     );
   }
