@@ -59,17 +59,17 @@ class ArrowButton extends StatelessWidget {
   }
 }
 
-class PhoneField extends StatelessWidget {
+class CHITextField extends StatelessWidget {
   final bool isForPhone;
-  final List<String> items;
+  final List<String>? items;
   final void Function(String?)? onChanged;
   final String value;
   final String hintText;
-  const PhoneField(
+  const CHITextField(
       {Key? key,
-      required this.items,
+      this.items,
       this.onChanged,
-      required this.value,
+      this.value = 'PK',
       this.isForPhone = true,
       required this.hintText})
       : super(key: key);
@@ -106,17 +106,20 @@ class PhoneField extends StatelessWidget {
                   icon: const SvgIcon('assets/icons/arrow_down.svg'),
                   iconSize: 8,
                   value: value,
-                  items: items.map((String item) {
-                    return DropdownMenuItem(
-                      value: item,
-                      child: Text(item),
-                    );
-                  }).toList(),
+                  items: items != null
+                      ? items!.map((String item) {
+                          return DropdownMenuItem(
+                            value: item,
+                            child: Text(item),
+                          );
+                        }).toList()
+                      : null,
                   onChanged: onChanged,
                 )
               : const SizedBox.shrink(),
           Expanded(
             child: TextField(
+              style: subTitleTextStyle,
               keyboardType:
                   isForPhone ? TextInputType.phone : TextInputType.name,
               decoration: InputDecoration(

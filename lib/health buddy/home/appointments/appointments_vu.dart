@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../health buddy/utils/widgets.dart';
+import '../../utils/widgets.dart';
 import './appointment_header_cell.dart';
 import './appointments_vm.dart';
 import 'package:stacked/stacked.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../health buddy/utils/widgets.dart';
+import '../utils/widgets.dart';
 import 'appointments/appointments_vu.dart';
 
 class BottomSummeryCellVU extends StatelessWidget {

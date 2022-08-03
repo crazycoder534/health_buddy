@@ -1,8 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:health_buddy/home/home_vm.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../health buddy/utils/widgets.dart';
+import '../utils/widgets.dart';
+import 'home_vm.dart';
 
 class CarouselSliderCellVU extends StatelessWidget {
   final HomeVM viewModel;

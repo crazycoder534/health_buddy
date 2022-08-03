@@ -8,18 +8,16 @@ Color whiteColor = Colors.white;
 
 //TEXT STYLES
 TextStyle titleTextStyle = TextStyle(
-    color: Colors.grey[800]!,
-    fontSize: 20,
-    fontWeight: FontWeight.w700,
-    height: 30);
+    color: Colors.grey[800]!, fontSize: 20, fontWeight: FontWeight.w700);
 TextStyle subTitleTextStyle = TextStyle(
-    color: Colors.grey[400],
-    fontSize: 16,
-    fontWeight: FontWeight.w400,
-    height: 24);
+    color: Colors.grey[400], fontSize: 16, fontWeight: FontWeight.w400);
 TextStyle btnTextStyle = const TextStyle(
-    color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500);
+    color: Colors.white, fontSize: 14, fontWeight: FontWeight.w500);
 TextStyle smallTextStyle = TextStyle(
     color: Colors.grey[400], fontSize: 12, fontWeight: FontWeight.w400);
-TextStyle prefixStyle = const TextStyle(
-    color: Colors.black, fontSize: 16, fontWeight: FontWeight.w400);
+TextStyle prefixStyle = TextStyle(
+    color: Colors.grey[900]!, fontSize: 16, fontWeight: FontWeight.w400);
+
+// BORDERS
+OutlineInputBorder chiOutlineBorder =
+    OutlineInputBorder(borderSide: BorderSide(color: Colors.grey[400]!));

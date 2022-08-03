@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:health_buddy/home/bottom_summery_cell_vu.dart';
+import '../home/bottom_summery_cell_vu.dart';
 import './header_cell_vu.dart';
 import './home_vm.dart';
 import 'package:stacked/stacked.dart';

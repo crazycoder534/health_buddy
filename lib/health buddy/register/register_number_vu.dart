@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:health_buddy/health%20buddy/utils/constants.dart';
+import 'package:health_buddy/health%20buddy/utils/widgets.dart';
 import 'package:stacked/stacked.dart';
 
 import 'register_number_vm.dart';
@@ -16,48 +18,30 @@ class RegisterNumberVU extends ViewModelBuilderWidget<RegisterNumberVM> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Create Account',
-                style: TextStyle(fontSize: 20, color: Colors.grey[800]),
-              ),
-              const SizedBox(
-                height: 4,
-              ),
+              Text('Create Account', style: titleTextStyle),
+              const SizedBox(height: 4),
               SizedBox(
                 width: 250,
                 child: Text(
                   'Please Enter Your Mobile Number',
-                  style: TextStyle(fontSize: 16, color: Colors.grey[400]),
+                  style: subTitleTextStyle,
                 ),
               ),
-              const SizedBox(
-                height: 24,
+              const SizedBox(height: 24),
+              CHITextField(
+                hintText: 'xxx xxxx xxx',
+                items: items,
+                value: viewModel.val,
+                onChanged: viewModel.onMenuChanged,
               ),
-              TextField(
-                decoration: InputDecoration(
-                    hintText: 'Enter Full Name',
-                    border: InputBorder.none,
-                    enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey[400]!)),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey[800]!))),
-              ),
-              // Container(
-              //   margin: EdgeInsets.only(
-              //       bottom: MediaQuery.of(context).viewInsets.bottom),
-              //   height: 200,
-              // ),
               const Spacer(),
               Row(
                 // mainAxisAlignment: M,
                 // crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Checkbox(
-                    value: viewModel.value,
-                    onChanged: (bool? value) {
-                      viewModel.value = value!;
-                      viewModel.notifyListeners();
-                    },
+                    value: viewModel.value1,
+                    onChanged: viewModel.onCheckBox1Changed,
                   ),
                   const Expanded(
                     child: Text(
@@ -68,18 +52,13 @@ class RegisterNumberVU extends ViewModelBuilderWidget<RegisterNumberVM> {
                   ),
                 ],
               ),
-              const SizedBox(
-                height: 8,
-              ),
+              const SizedBox(height: 8),
               Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Checkbox(
-                    value: viewModel.value,
-                    onChanged: (bool? value) {
-                      viewModel.value = value!;
-                      viewModel.notifyListeners();
-                    },
+                    value: viewModel.value2,
+                    onChanged: viewModel.onCheckBox2Changed,
                   ),
                   const Expanded(
                     child: Text(
@@ -90,16 +69,10 @@ class RegisterNumberVU extends ViewModelBuilderWidget<RegisterNumberVM> {
                   ),
                 ],
               ),
-
+              const SizedBox(height: 24),
               Align(
                 alignment: Alignment.center,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(Colors.lightBlue[500])),
-                  child: const Text('Continue'),
-                ),
+                child: CHIButton(onTap: () {}, btnLabel: 'Send OTP'),
               ),
             ],
           ),
@@ -113,3 +86,5 @@ class RegisterNumberVU extends ViewModelBuilderWidget<RegisterNumberVM> {
     return RegisterNumberVM();
   }
 }
+
+List<String> items = ['Uk', 'US', 'PK'];
