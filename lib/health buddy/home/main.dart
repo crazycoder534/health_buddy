@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../splash and on bord/onbord_vu.dart';
+import '../appbar/test.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const OnBoardVU(),
+      home: const AppBarTest(),
     );
   }
 }
