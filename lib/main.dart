@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:health_buddy/health%20buddy/splash%20and%20on%20bord/onbord_vu.dart';
 
-import 'health buddy/register/register_name_vu.dart';
 import 'health buddy/utils/constants.dart';
 
 void main() {
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: CHITheme,
-      home: const RegisterNameVU(),
+      home: const OnBoardVU(),
     );
   }
 }

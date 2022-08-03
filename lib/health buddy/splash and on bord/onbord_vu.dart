@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:health_buddy/health%20buddy/login/login_vu.dart';
 import 'package:health_buddy/health%20buddy/utils/widgets.dart';
 import 'package:stacked/stacked.dart';
 
@@ -21,7 +22,10 @@ class OnBoardVU extends ViewModelBuilderWidget<OnBordVM> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: const [
-                  SkipButton(),
+                  SkipButton(
+                      // onTap: Navigator.push(context,
+                      //         MaterialPageRoute(builder: (context) => const LoginVU()));
+                      ),
                 ],
               ),
               const SizedBox(
@@ -87,6 +91,11 @@ class OnBoardVU extends ViewModelBuilderWidget<OnBordVM> {
                                       viewModel.numberOfPage;
                                   // CHIRouter.push(
                                   //     context, const RegisterNameVU());
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const LoginVU()));
                                 }
 
                                 viewModel.pageController.nextPage(
