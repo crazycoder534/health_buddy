@@ -7,13 +7,19 @@ Color grey100 = Colors.grey[100]!;
 Color whiteColor = Colors.white;
 
 //TEXT STYLES
-TextStyle titleTextStyle = const TextStyle(
-    color: Colors.black, fontSize: 20, fontWeight: FontWeight.w700);
+TextStyle titleTextStyle = TextStyle(
+    color: Colors.grey[800]!,
+    fontSize: 20,
+    fontWeight: FontWeight.w700,
+    height: 30);
 TextStyle subTitleTextStyle = TextStyle(
-    color: Colors.grey[400], fontSize: 16, fontWeight: FontWeight.w400);
+    color: Colors.grey[400],
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    height: 24);
 TextStyle btnTextStyle = const TextStyle(
     color: Colors.white, fontSize: 16, fontWeight: FontWeight.w500);
 TextStyle smallTextStyle = TextStyle(
-    color: Colors.grey[500], fontSize: 12, fontWeight: FontWeight.w400);
+    color: Colors.grey[400], fontSize: 12, fontWeight: FontWeight.w400);
 TextStyle prefixStyle = const TextStyle(
     color: Colors.black, fontSize: 16, fontWeight: FontWeight.w400);
