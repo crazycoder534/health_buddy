@@ -385,8 +385,8 @@ class OTPBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 48.0,
-      height: 48.0,
+      width: 64.0,
+      height: 64.0,
       alignment: Alignment.center,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
@@ -395,10 +395,8 @@ class OTPBox extends StatelessWidget {
           )),
       child: Text(
         value.toString(),
-        style: const TextStyle(
-          fontSize: 30.0,
-          color: Color(0xffD0D5DD),
-        ),
+        style: subTitleTextStyle.copyWith(
+            fontSize: 48, fontWeight: FontWeight.w500, letterSpacing: -2),
       ),
     );
   }
@@ -434,7 +432,9 @@ class ResendButton extends StatelessWidget {
         ),
         height: 36,
         width: 78,
-        child: const Center(child: Text('Resend')),
+        child: Center(
+            child:
+                Text('Resend', style: btnTextStyle.copyWith(color: grey800))),
       ),
     );
   }

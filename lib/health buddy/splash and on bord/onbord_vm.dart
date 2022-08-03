@@ -12,9 +12,23 @@ class OnBordVM extends BaseViewModel {
     notifyListeners();
   }
 
+  onIncreament() {
+    if (numberOfPage < 4) {
+      numberOfPage++;
+      notifyListeners();
+    }
+  }
+
+  onDecreament() {
+    if (numberOfPage > 1) {
+      numberOfPage--;
+      notifyListeners();
+    }
+  }
+
   List<OnboardModel> screens = [
     OnboardModel(
-      image: 'assets/images/onboarding images/img1.svg',
+      image: 'assets/images/onboarding images/image1.png',
       titleText: "24/7 Round-the-Clock- Service",
       subtitleText:
           "24/7 Medical services available for all chronic, acute & palliative care ",

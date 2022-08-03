@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:health_buddy/health%20buddy/login/login_vu.dart';
-import 'package:health_buddy/health%20buddy/utils/widgets.dart';
 import 'package:stacked/stacked.dart';
-
+import '../register/register_name_vu.dart';
+import '../utils/chi_router.dart';
 import '../utils/constants.dart';
+import '../utils/widgets.dart';
 import './onbord_vm.dart';
 
 class OnBoardVU extends ViewModelBuilderWidget<OnBordVM> {
@@ -21,11 +21,11 @@ class OnBoardVU extends ViewModelBuilderWidget<OnBordVM> {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: const [
+                children: [
                   SkipButton(
-                      // onTap: Navigator.push(context,
-                      //         MaterialPageRoute(builder: (context) => const LoginVU()));
-                      ),
+                    onTap: () =>
+                        CHIRouter.push(context, const RegisterNameVU()),
+                  ),
                 ],
               ),
               const SizedBox(
@@ -33,7 +33,7 @@ class OnBoardVU extends ViewModelBuilderWidget<OnBordVM> {
               ),
               Expanded(
                 child: PageView.builder(
-                  itemCount: viewModel.screens.length,
+                  itemCount: 4,
                   controller: viewModel.pageController,
                   onPageChanged: viewModel.changePage,
                   physics: const NeverScrollableScrollPhysics(),
@@ -62,57 +62,38 @@ class OnBoardVU extends ViewModelBuilderWidget<OnBordVM> {
                           style: subTitleTextStyle,
                         ),
                         const Spacer(),
-                        Row(
-                          children: [
-                            Text("${viewModel.numberOfPage.toString()}/4"),
-                            const Spacer(),
-                            ArrowButton(
-                              onTap: () {
-                                viewModel.pageController.previousPage(
-                                  duration: const Duration(milliseconds: 100),
-                                  curve: Curves.easeIn,
-                                );
-
-                                if (viewModel.numberOfPage == 1) {
-                                  viewModel.numberOfPage = 1;
-                                } else {
-                                  viewModel.numberOfPage--;
-                                }
-                              },
-                            ),
-                            const SizedBox(
-                              width: 61,
-                            ),
-                            ArrowButton(
-                              leftAngle: false,
-                              onTap: () {
-                                if (index == viewModel.screens.length - 1) {
-                                  viewModel.numberOfPage =
-                                      viewModel.numberOfPage;
-                                  // CHIRouter.push(
-                                  //     context, const RegisterNameVU());
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const LoginVU()));
-                                }
-
-                                viewModel.pageController.nextPage(
-                                  duration: const Duration(milliseconds: 100),
-                                  curve: Curves.easeIn,
-                                );
-                                if (index != viewModel.screens.length - 1) {
-                                  viewModel.numberOfPage++;
-                                }
-                              },
-                            ),
-                          ],
-                        )
                       ],
                     );
                   },
                 ),
+              ),
+              Row(
+                children: [
+                  Text("${viewModel.numberOfPage.toString()}/4"),
+                  const Spacer(),
+                  ArrowButton(
+                    onTap: () {
+                      viewModel.pageController.previousPage(
+                        duration: const Duration(milliseconds: 100),
+                        curve: Curves.easeIn,
+                      );
+                      viewModel.onDecreament();
+                    },
+                  ),
+                  const SizedBox(
+                    width: 61,
+                  ),
+                  ArrowButton(
+                    leftAngle: false,
+                    onTap: () {
+                      viewModel.onIncreament();
+                      viewModel.pageController.nextPage(
+                        duration: const Duration(milliseconds: 100),
+                        curve: Curves.easeIn,
+                      );
+                    },
+                  ),
+                ],
               )
             ],
           ),

@@ -24,11 +24,8 @@ class RegisterVerifyCodeVU
               const SizedBox(
                 height: 4,
               ),
-              SizedBox(
-                width: 250,
-                child: Text('we\'ve send it to +92 xxx xxx xxxx',
-                    style: subTitleTextStyle),
-              ),
+              Text('we\'ve send it to +92 xxx xxx xxxx',
+                  style: subTitleTextStyle),
               const SizedBox(height: 200),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -42,13 +39,11 @@ class RegisterVerifyCodeVU
               const Spacer(),
               Row(
                 children: [
-                  const Expanded(
-                    child: Text(
-                      'Didn\'t get the code?',
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
-                    ),
+                  Text(
+                    'Didn\'t get the code?',
+                    style: mediumTextStyle,
                   ),
+                  const Spacer(),
                   ResendButton(
                     onTap: () => CHIRouter.push(context, const HomeVU()),
                   )
