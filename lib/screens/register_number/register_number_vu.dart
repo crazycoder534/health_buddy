@@ -53,9 +53,9 @@ class RegisterNumberVU extends ViewModelBuilderWidget<RegisterNumberVM> {
                 // crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Checkbox(
-                    value: viewModel.value,
+                    value: viewModel.value1,
                     onChanged: (bool? value) {
-                      viewModel.value = value!;
+                      viewModel.value1 = value!;
                       viewModel.notifyListeners();
                     },
                   ),
@@ -75,9 +75,9 @@ class RegisterNumberVU extends ViewModelBuilderWidget<RegisterNumberVM> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Checkbox(
-                    value: viewModel.value,
+                    value: viewModel.value2,
                     onChanged: (bool? value) {
-                      viewModel.value = value!;
+                      viewModel.value2 = value!;
                       viewModel.notifyListeners();
                     },
                   ),
