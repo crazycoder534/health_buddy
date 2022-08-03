@@ -14,7 +14,7 @@ class AppointmentHeaderCellVU extends StatelessWidget {
         children: [
           GestureDetector(
               child: actionButtonContainer(const Color(0xffE0F2FE),
-                  imageUrl: 'assets/images/app assets/arrow.svg',
+                  imageUrl: 'assets/images/app_assets/arrow.svg',
                   width: 10,
                   height: 10),
               onTap: () => Navigator.pop(context)),
@@ -29,7 +29,7 @@ class AppointmentHeaderCellVU extends StatelessWidget {
             child: actionButtonContainer(const Color(0xffE0F2FE),
                 width: 16,
                 height: 16,
-                imageUrl: 'assets/images/app assets/shape.svg'),
+                imageUrl: 'assets/images/app_assets/shape.svg'),
             onTap: () {},
           ),
         ],

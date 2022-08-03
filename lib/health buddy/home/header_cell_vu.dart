@@ -13,7 +13,7 @@ class HeaderCellVU extends StatelessWidget {
         children: [
           Text(
             'Welcome',
-            style: subTitleTextStyle.copyWith(fontSize: 14, color: grey800),
+            style: mediumTextStyle.copyWith(color: grey800),
           ),
           const SizedBox(width: 8),
           Text(
@@ -24,7 +24,7 @@ class HeaderCellVU extends StatelessWidget {
           GestureDetector(
             child: actionButtonContainer(
                 const Color(0xffEB5757).withOpacity(0.1),
-                imageUrl: 'assets/images/app assets/sos.svg',
+                imageUrl: 'assets/images/app_assets/sos.svg',
                 width: 10,
                 height: 10),
             onTap: () {},
@@ -34,7 +34,7 @@ class HeaderCellVU extends StatelessWidget {
             child: actionButtonContainer(blue500.withOpacity(0.1),
                 width: 16,
                 height: 18,
-                imageUrl: 'assets/images/app assets/bell.svg'),
+                imageUrl: 'assets/images/app_assets/bell.svg'),
             onTap: () {},
           )
         ],

@@ -186,16 +186,16 @@ Widget chiContainer({
   return Container(
     padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 14),
     decoration: BoxDecoration(
-        color: const Color(0xffffffff),
+        color: cardColor,
         borderRadius: BorderRadius.circular(12),
         border: Border.all(
           width: 1,
-          color: const Color(0xffEAE9F0),
+          color: grey100,
         ),
         boxShadow: [
           BoxShadow(
             offset: const Offset(0, 0),
-            color: const Color(0xff000000).withOpacity(0.06),
+            color: Colors.black.withOpacity(0.06),
             blurRadius: 31,
             spreadRadius: 10,
           )
@@ -242,14 +242,7 @@ Widget innerColumn({
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
-      Text(
-        title,
-        style: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w400,
-          color: Color(0xff1D2939),
-        ),
-      ),
+      Text(title, style: subTitleTextStyle.copyWith(color: grey800)),
       const SizedBox(height: 8.0),
       SvgPicture.asset(
         imageUrl,

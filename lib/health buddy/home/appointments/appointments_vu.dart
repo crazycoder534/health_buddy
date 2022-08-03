@@ -29,13 +29,13 @@ class AppointmentVU extends ViewModelBuilderWidget<AppointmentsVM> {
                 ),
                 chiCustomRow(
                     title: "Book Appointment",
-                    imageUrl: "assets/images/app assets/calender.svg"),
+                    imageUrl: "assets/images/app_assets/calender.svg"),
                 const SizedBox(
                   height: 12,
                 ),
                 chiCustomRow(
                     title: "Prescriptions",
-                    imageUrl: "assets/images/app assets/appointment.svg"),
+                    imageUrl: "assets/images/app_assets/appointment.svg"),
                 const SizedBox(
                   height: 24,
                 ),

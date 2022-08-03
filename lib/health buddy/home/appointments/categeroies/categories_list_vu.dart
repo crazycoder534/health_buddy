@@ -77,7 +77,7 @@ Widget categoriesCellVU() {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SvgPicture.asset("assets/heart.svg"),
+            SvgPicture.asset("assets/images/app_assets/heart.svg"),
             const SizedBox(height: 12.0),
             const Text(
               "Cardiologist",

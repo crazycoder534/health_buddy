@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../utils/constants.dart';
+
 Widget doctorListCellVu() {
   return Padding(
     padding: const EdgeInsets.only(left: 24, right: 24, bottom: 12),
     child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         decoration: BoxDecoration(
-            color: const Color(0xffffffff),
+            color: whiteColor,
             borderRadius: BorderRadius.circular(12),
             border: Border.all(
               width: 1,
@@ -37,7 +39,7 @@ Widget secondSectionVU() {
   return Row(
     children: [
       SvgPicture.asset(
-        "assets/alaram.svg",
+        "assets/images/app_assets/alaram.svg",
       ),
       const SizedBox(
         width: 8.0,
@@ -51,7 +53,7 @@ Widget secondSectionVU() {
       ),
       const Spacer(),
       SvgPicture.asset(
-        "assets/images/app assets/alaram.svg",
+        "assets/images/app_assets/alaram.svg",
       ),
       const SizedBox(
         width: 8.0,
@@ -71,7 +73,7 @@ Row firstSectionVU() {
   return Row(
     children: [
       SvgPicture.asset(
-        "assets/images/app assets/appointment.svg",
+        "assets/images/app_assets/appointment.svg",
         width: 48,
         height: 46,
       ),
@@ -125,7 +127,7 @@ Row firstSectionVU() {
           ),
           Row(
             children: [
-              SvgPicture.asset("assets/star.svg"),
+              SvgPicture.asset("assets/images/app_assets/star.svg"),
               const SizedBox(
                 width: 6.0,
               ),

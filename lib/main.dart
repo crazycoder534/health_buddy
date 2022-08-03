@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:health_buddy/health%20buddy/splash%20and%20on%20bord/onbord_vu.dart';
 
+import 'health buddy/splash and on bord/onbord_vu.dart';
 import 'health buddy/utils/constants.dart';
 
 void main() {
