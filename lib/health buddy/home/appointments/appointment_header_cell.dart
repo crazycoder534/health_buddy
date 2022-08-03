@@ -8,13 +8,15 @@ class AppointmentHeaderCellVU extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 24),
+      padding: const EdgeInsets.only(bottom: 24, right: 24, left: 24),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           GestureDetector(
               child: actionButtonContainer(const Color(0xffE0F2FE),
-                  imageUrl: 'assets/arrow.svg', width: 10, height: 10),
+                  imageUrl: 'assets/images/app assets/arrow.svg',
+                  width: 10,
+                  height: 10),
               onTap: () => Navigator.pop(context)),
           const Text(
             "Appointments",
@@ -25,7 +27,9 @@ class AppointmentHeaderCellVU extends StatelessWidget {
           ),
           GestureDetector(
             child: actionButtonContainer(const Color(0xffE0F2FE),
-                width: 16, height: 16, imageUrl: 'assets/shape.svg'),
+                width: 16,
+                height: 16,
+                imageUrl: 'assets/images/app assets/shape.svg'),
             onTap: () {},
           ),
         ],

@@ -25,7 +25,7 @@ class OnBoardVU extends ViewModelBuilderWidget<OnBordVM> {
                 ],
               ),
               const SizedBox(
-                height: 13,
+                height: 12,
               ),
               Expanded(
                 child: PageView.builder(
@@ -83,10 +83,10 @@ class OnBoardVU extends ViewModelBuilderWidget<OnBordVM> {
                               leftAngle: false,
                               onTap: () {
                                 if (index == viewModel.screens.length - 1) {
-                                  // Navigator.pushReplacement(context,
-                                  //     MaterialPageRoute(builder: (context) => Home()));
                                   viewModel.numberOfPage =
                                       viewModel.numberOfPage;
+                                  // CHIRouter.push(
+                                  //     context, const RegisterNameVU());
                                 }
 
                                 viewModel.pageController.nextPage(
