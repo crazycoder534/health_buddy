@@ -63,18 +63,18 @@ Widget chiContainer({
   return Container(
     padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 14),
     decoration: BoxDecoration(
-        color: const Color(0xffFCFCFD),
-        borderRadius: BorderRadius.circular(18),
+        color: const Color(0xffffffff),
+        borderRadius: BorderRadius.circular(12),
         border: Border.all(
           width: 1,
           color: const Color(0xffEAE9F0),
         ),
         boxShadow: [
           BoxShadow(
-            offset: const Offset(0, 25),
-            color: const Color(0xff000000).withOpacity(0.09),
-            blurRadius: 40,
-            spreadRadius: -10,
+            offset: const Offset(0, 0),
+            color: const Color(0xff000000).withOpacity(0.06),
+            blurRadius: 31,
+            spreadRadius: 10,
           )
         ]),
     child: isBigBox
@@ -144,34 +144,37 @@ Widget chiCustomRow({
   String? imageUrl2,
   void Function()? onPress,
 }) {
-  return Container(
-    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-    decoration: BoxDecoration(
-        color: const Color(0xffFCFCFD),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(
-          width: 1,
-          color: const Color(0xffEAE9F0),
-        ),
-        boxShadow: [
-          BoxShadow(
-            offset: const Offset(0, 25),
-            color: const Color(0xff000000).withOpacity(0.08),
-            blurRadius: 40,
-            spreadRadius: -10,
-          )
-        ]),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        GestureDetector(
-          onTap: onPress,
-          child: innerRow(
-            title: title,
-            imageUrl: imageUrl,
+  return Padding(
+    padding: const EdgeInsets.only(left: 24, right: 24),
+    child: Container(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+      decoration: BoxDecoration(
+          color: const Color(0xffffffff),
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            width: 1,
+            color: const Color(0xffEAE9F0),
           ),
-        ),
-      ],
+          boxShadow: [
+            BoxShadow(
+              offset: const Offset(0, 0),
+              color: const Color(0xff000000).withOpacity(0.06),
+              blurRadius: 31,
+              spreadRadius: 10,
+            )
+          ]),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          GestureDetector(
+            onTap: onPress,
+            child: innerRow(
+              title: title,
+              imageUrl: imageUrl,
+            ),
+          ),
+        ],
+      ),
     ),
   );
 }
@@ -203,12 +206,15 @@ Widget innerRow({
 }
 
 Widget headingText({required String headingTxt}) {
-  return Text(
-    headingTxt,
-    style: const TextStyle(
-      fontSize: 18,
-      fontWeight: FontWeight.w400,
-      color: Color(0xff2C2646),
+  return Padding(
+    padding: const EdgeInsets.only(right: 24, left: 24),
+    child: Text(
+      headingTxt,
+      style: const TextStyle(
+        fontSize: 18,
+        fontWeight: FontWeight.w400,
+        color: Color(0xff1D2939),
+      ),
     ),
   );
 }
@@ -219,12 +225,16 @@ Widget chiTextButton({
 }) {
   return GestureDetector(
       onTap: onTap,
-      child: Text(
-        btnTitle,
-        style: const TextStyle(
-          fontSize: 14,
-          fontWeight: FontWeight.w500,
-          color: Color(0xff1D2939),
+      child: Container(
+        width: 46,
+        height: 20,
+        child: Text(
+          btnTitle,
+          style: const TextStyle(
+            fontSize: 14,
+            fontWeight: FontWeight.w500,
+            color: Color(0xff1D2939),
+          ),
         ),
       ));
 }

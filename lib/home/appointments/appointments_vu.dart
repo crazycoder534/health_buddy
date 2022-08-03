@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:health_buddy/chi_custom_widget.dart';
+import 'package:health_buddy/home/appointments/doctors/doctor_list_vu.dart';
 import './appointment_header_cell.dart';
 import './appointments_vm.dart';
 import 'package:stacked/stacked.dart';
+
+import 'categeroies/categories_list_vu.dart';
 
 class AppointmentVU extends ViewModelBuilderWidget<AppointmentsVM> {
   const AppointmentVU({Key? key}) : super(key: key);
@@ -11,10 +14,11 @@ class AppointmentVU extends ViewModelBuilderWidget<AppointmentsVM> {
   Widget builder(
       BuildContext context, AppointmentsVM viewModel, Widget? child) {
     return Scaffold(
+      backgroundColor: const Color(0xffFCFCFD),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(24),
+            padding: const EdgeInsets.only(top: 24, bottom: 24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -33,13 +37,11 @@ class AppointmentVU extends ViewModelBuilderWidget<AppointmentsVM> {
                 const SizedBox(
                   height: 24,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    headingText(headingTxt: "Categories"),
-                    chiTextButton(btnTitle: "See All", onTap: () {})
-                  ],
+                const CategoriesListVU(),
+                const SizedBox(
+                  height: 24,
                 ),
+                const DoctorListVU()
               ],
             ),
           ),

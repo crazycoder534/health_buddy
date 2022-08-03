@@ -12,6 +12,7 @@ class HomeVU extends ViewModelBuilderWidget<HomeVM> {
   @override
   Widget builder(BuildContext context, HomeVM viewModel, Widget? child) {
     return Scaffold(
+      backgroundColor: const Color(0xffFCFCFD),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
