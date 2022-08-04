@@ -14,6 +14,7 @@ class HomeVU extends ViewModelBuilderWidget<HomeVM> {
     return Scaffold(
       body: SafeArea(
         child: Column(
+         
           children: [
             const HeaderCellVU(),
             Expanded(
