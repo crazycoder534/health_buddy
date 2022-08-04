@@ -19,3 +19,28 @@ class CHIRouter {
     return Navigator.pop(context);
   }
 }
+
+class ThisIsFadeRoute extends PageRouteBuilder {
+  Widget? page;
+  Widget? route;
+
+  ThisIsFadeRoute({this.page, this.route})
+      : super(
+          pageBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+          ) =>
+              page!,
+          transitionsBuilder: (
+            BuildContext context,
+            Animation<double> animation,
+            Animation<double> secondaryAnimation,
+            Widget child,
+          ) =>
+              FadeTransition(
+            opacity: animation,
+            child: route,
+          ),
+        );
+}
