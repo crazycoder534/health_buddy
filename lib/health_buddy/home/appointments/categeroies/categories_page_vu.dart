@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:health_buddy/health_buddy/utils/constants.dart';
 
 import './categories_page_vm.dart';
 import '../../../utils/chi_router.dart';
@@ -37,15 +38,7 @@ class CategoriesPageVU extends ViewModelBuilderWidget<CategoriesPageVM> {
           padding: const EdgeInsets.only(left: 24),
           child: Container(
             height: 84,
-            decoration:
-                BoxDecoration(color: const Color(0xffFCFCFD), boxShadow: [
-              BoxShadow(
-                offset: const Offset(0, 0),
-                color: const Color(0xff000000).withOpacity(0.06),
-                blurRadius: 31,
-                spreadRadius: 10,
-              )
-            ]),
+            decoration: BoxDecoration(color: whiteColor, boxShadow: cardShadow),
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
@@ -73,14 +66,11 @@ Widget categoriesPageCellVU(BuildContext context, CategoriesPageVM vieModel) {
     ),
     child: Container(
         width: 102,
-        padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 14),
+        padding: const EdgeInsets.symmetric(vertical: 14),
         decoration: BoxDecoration(
-            color: const Color(0xffffffff),
+            color: whiteColor,
             borderRadius: BorderRadius.circular(12),
-            border: Border.all(
-              width: 1,
-              color: const Color(0xffEAE9F0),
-            ),
+            border: Border.all(width: 1, color: grey100),
             boxShadow: [
               BoxShadow(
                 offset: const Offset(0, 0),
@@ -94,13 +84,9 @@ Widget categoriesPageCellVU(BuildContext context, CategoriesPageVM vieModel) {
           children: [
             SvgPicture.asset("assets/images/app_assets/heart.svg"),
             const SizedBox(height: 12.0),
-            const Text(
+            Text(
               "Cardiologist",
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-                color: Color(0xff1D2939),
-              ),
+              style: smallTwoTextStyle,
             ),
           ],
         )),

@@ -45,6 +45,8 @@ Color cardColor = Colors.white;
 //TEXT STYLES
 TextStyle titleTextStyle =
     TextStyle(color: grey800, fontSize: 20, fontWeight: FontWeight.w700);
+TextStyle titleTextTwoStyle =
+    TextStyle(color: grey800, fontSize: 18, fontWeight: FontWeight.w500);
 TextStyle subTitleTextStyle =
     TextStyle(color: grey400, fontSize: 16, fontWeight: FontWeight.w400);
 TextStyle btnTextStyle =
@@ -53,6 +55,8 @@ TextStyle mediumTextStyle =
     TextStyle(color: grey400, fontSize: 14, fontWeight: FontWeight.w400);
 TextStyle smallTextStyle =
     TextStyle(color: grey400, fontSize: 12, fontWeight: FontWeight.w400);
+TextStyle smallTwoTextStyle =
+    TextStyle(color: grey800, fontSize: 12, fontWeight: FontWeight.w500);
 TextStyle prefixStyle =
     TextStyle(color: grey800, fontSize: 16, fontWeight: FontWeight.w400);
 
@@ -65,14 +69,14 @@ List<BoxShadow> cardShadow = [
   BoxShadow(
     offset: const Offset(0, 0),
     blurRadius: 31,
-    spreadRadius: -10,
-    color: Colors.black.withOpacity(0.06),
+    spreadRadius: 10,
+    color: const Color(0xff000000).withOpacity(0.06),
   ),
   BoxShadow(
     offset: const Offset(0, 0),
     blurRadius: 31,
-    spreadRadius: -10,
-    color: Colors.black.withOpacity(0.06),
+    spreadRadius: 10,
+    color: const Color(0xff000000).withOpacity(0.06),
   ),
 ];
 

@@ -200,14 +200,7 @@ Widget chiContainer({
           width: 1,
           color: grey100,
         ),
-        boxShadow: [
-          BoxShadow(
-            offset: const Offset(0, 0),
-            color: Colors.black.withOpacity(0.06),
-            blurRadius: 31,
-            spreadRadius: 10,
-          )
-        ]),
+        boxShadow: cardShadow),
     child: isBigBox
         ? Padding(
             padding: const EdgeInsets.symmetric(horizontal: 22.94, vertical: 0),
@@ -273,20 +266,10 @@ Widget chiCustomRow({
     child: Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       decoration: BoxDecoration(
-          color: const Color(0xffffffff),
+          color: whiteColor,
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(
-            width: 1,
-            color: const Color(0xffEAE9F0),
-          ),
-          boxShadow: [
-            BoxShadow(
-              offset: const Offset(0, 0),
-              color: const Color(0xff000000).withOpacity(0.06),
-              blurRadius: 31,
-              spreadRadius: 10,
-            )
-          ]),
+          border: Border.all(width: 1, color: grey100),
+          boxShadow: cardShadow),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -317,14 +300,7 @@ Widget innerRow({
       const SizedBox(
         width: 16.0,
       ),
-      Text(
-        title,
-        style: const TextStyle(
-          fontSize: 16,
-          fontWeight: FontWeight.w500,
-          color: Color(0xff1D2939),
-        ),
-      ),
+      Text(title, style: prefixStyle),
     ],
   );
 }
@@ -332,14 +308,7 @@ Widget innerRow({
 Widget headingText({required String headingTxt}) {
   return Padding(
     padding: const EdgeInsets.only(right: 24, left: 24),
-    child: Text(
-      headingTxt,
-      style: const TextStyle(
-        fontSize: 18,
-        fontWeight: FontWeight.w400,
-        color: Color(0xff1D2939),
-      ),
-    ),
+    child: Text(headingTxt, style: titleTextTwoStyle),
   );
 }
 
