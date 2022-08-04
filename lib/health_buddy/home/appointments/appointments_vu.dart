@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:health_buddy/health_buddy/home/appointments/categeroies/categories_page_vu.dart';
 import '../../utils/chi_router.dart';
 import '../../utils/widgets.dart';
 import './appointments_vm.dart';
 import 'package:stacked/stacked.dart';
-
-import 'categeroies/categories_list_vu.dart';
 import 'doctors/doctor_list_vu.dart';
 import 'doctors/search doctor/search_doctor_vu.dart';
 
@@ -48,7 +47,7 @@ class AppointmentVU extends ViewModelBuilderWidget<AppointmentsVM> {
                   const SizedBox(
                     height: 24,
                   ),
-                  const CategoriesListVU(),
+                  const CategoriesPageVU(),
                   const SizedBox(
                     height: 24,
                   ),

@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../utils/widgets.dart';
+import './categories_page_vm.dart';
+import '../../../utils/chi_router.dart';
+import 'package:stacked/stacked.dart';
 
-class CategoriesListVU extends StatelessWidget {
-  const CategoriesListVU({Key? key}) : super(key: key);
+import '../../../utils/widgets.dart';
+import 'categories_list/categories_list_vu.dart';
+
+class CategoriesPageVU extends ViewModelBuilderWidget<CategoriesPageVM> {
+  const CategoriesPageVU({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget builder(
+      BuildContext context, CategoriesPageVM viewModel, Widget? child) {
     return Column(
       children: [
         Row(
@@ -16,7 +22,11 @@ class CategoriesListVU extends StatelessWidget {
             headingText(headingTxt: "Categories"),
             Padding(
               padding: const EdgeInsets.only(right: 24),
-              child: chiTextButton(btnTitle: "See All", onTap: () {}),
+              child: chiTextButton(
+                btnTitle: "See All",
+                onTap: () => CHIRouter.push(
+                    context, CategoriesListVU(vieModel: viewModel)),
+              ),
             )
           ],
         ),
@@ -40,7 +50,7 @@ class CategoriesListVU extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                return categoriesCellVU();
+                return categoriesPageCellVU(context, viewModel);
               },
               itemCount: 6,
             ),
@@ -49,9 +59,14 @@ class CategoriesListVU extends StatelessWidget {
       ],
     );
   }
+
+  @override
+  CategoriesPageVM viewModelBuilder(BuildContext context) {
+    return CategoriesPageVM();
+  }
 }
 
-Widget categoriesCellVU() {
+Widget categoriesPageCellVU(BuildContext context, CategoriesPageVM vieModel) {
   return Padding(
     padding: const EdgeInsets.only(
       right: 8,
