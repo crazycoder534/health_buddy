@@ -67,6 +67,8 @@ class CategoriesListVU extends StatelessWidget {
                   ),
                 ],
               ),
+              const Spacer(),
+              SvgPicture.asset("assets/icons/forward.svg"),
             ],
           )),
     );
