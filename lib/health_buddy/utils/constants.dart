@@ -59,6 +59,8 @@ TextStyle smallTwoTextStyle =
     TextStyle(color: grey800, fontSize: 12, fontWeight: FontWeight.w500);
 TextStyle prefixStyle =
     TextStyle(color: grey800, fontSize: 16, fontWeight: FontWeight.w400);
+TextStyle bluelightStyle =
+    TextStyle(color: blue500, fontSize: 16, fontWeight: FontWeight.w400);
 
 // BORDERS
 OutlineInputBorder chiOutlineBorder =

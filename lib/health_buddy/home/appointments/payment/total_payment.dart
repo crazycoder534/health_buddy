@@ -21,15 +21,16 @@ class TotalPayment extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
-              totalPayment("Total Cost", "Rs:", "2000"),
+              totalCostDiscountCell("Total Cost", "Rs:", "2000"),
               const SizedBox(
                 height: 10,
               ),
-              totalPayment("Total Discount", "Rs:", " 0.0"),
+              totalCostDiscountCell("Total Discount", "Rs:", "0.0"),
               const SizedBox(
                 height: 10,
               ),
-              totalPayment("Total Payment", "Rs:", " 2000"),
+              Divider(color: grey200),
+              totalPayment("Total Payment", "Rs:", "2000"),
             ],
           ),
         ),
@@ -38,7 +39,7 @@ class TotalPayment extends StatelessWidget {
   }
 }
 
-Widget totalPayment(String total, String currency, String price) {
+Widget totalCostDiscountCell(String total, String currency, String price) {
   return Row(
     children: [
       Text(
@@ -51,11 +52,34 @@ Widget totalPayment(String total, String currency, String price) {
         style: prefixStyle,
       ),
       const SizedBox(
-        width: 2,
+        width: 4,
       ),
       Text(
         price,
         style: prefixStyle,
+      ),
+    ],
+  );
+}
+
+Widget totalPayment(String totalPayment, String currency, String price) {
+  return Row(
+    children: [
+      Text(
+        totalPayment,
+        style: prefixStyle,
+      ),
+      const Spacer(),
+      Text(
+        currency,
+        style: bluelightStyle,
+      ),
+      const SizedBox(
+        width: 4,
+      ),
+      Text(
+        price,
+        style: bluelightStyle,
       ),
     ],
   );
