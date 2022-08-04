@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:health_buddy/health_buddy/wellcome/wellcome_controler.dart';
+import '../health_buddy/wellcome/wellcome_controler.dart';
 import 'health_buddy/utils/constants.dart';
 
 void main() {
