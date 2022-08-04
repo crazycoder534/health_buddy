@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../home/header_cell_vu.dart';
 import 'constants.dart';
 
 class CHIButton extends StatelessWidget {
@@ -339,17 +340,19 @@ Widget chiTextButton({
   required String btnTitle,
   required void Function() onTap,
 }) {
-  return GestureDetector(
+  return InkWell(
       onTap: onTap,
       child: SizedBox(
         width: 46,
         height: 20,
-        child: Text(
-          btnTitle,
-          style: const TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.w500,
-            color: Color(0xff1D2939),
+        child: Center(
+          child: Text(
+            btnTitle,
+            style: const TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+              color: Color(0xff1D2939),
+            ),
           ),
         ),
       ));
@@ -448,6 +451,42 @@ class SocialButton extends StatelessWidget {
         height: 44,
         color: grey100,
         child: SvgPicture.asset(icon, fit: BoxFit.scaleDown),
+      ),
+    );
+  }
+}
+
+class CHIAppBar extends StatelessWidget {
+  final VoidCallback? onHomeTap;
+  final String title;
+  const CHIAppBar({Key? key, this.onHomeTap, required this.title})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(24),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          GestureDetector(
+              child: actionButtonContainer(const Color(0xffE0F2FE),
+                  imageUrl: 'assets/images/app_assets/arrow.svg',
+                  width: 10,
+                  height: 10),
+              onTap: () => Navigator.pop(context)),
+          Text(
+            title,
+            style: titleTextStyle,
+          ),
+          GestureDetector(
+            onTap: onHomeTap,
+            child: actionButtonContainer(const Color(0xffE0F2FE),
+                width: 16,
+                height: 16,
+                imageUrl: 'assets/images/app_assets/shape.svg'),
+          ),
+        ],
       ),
     );
   }

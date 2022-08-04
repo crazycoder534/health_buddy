@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:health_buddy/health%20buddy/utils/widgets.dart';
 
 import '../categories_page_vm.dart';
 import 'model.dart';
@@ -11,10 +12,19 @@ class CategoriesListVU extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ListView.builder(
-            itemCount: vieModel.item.length,
-            itemBuilder: (context, index) =>
-                categoriesListCellVU(vieModel.item[index])));
+        body: SafeArea(
+      child: Column(
+        children: [
+          const CHIAppBar(title: "Categories"),
+          Expanded(
+            child: ListView.builder(
+                itemCount: vieModel.item.length,
+                itemBuilder: (context, index) =>
+                    categoriesListCellVU(vieModel.item[index])),
+          ),
+        ],
+      ),
+    ));
   }
 
   Widget categoriesListCellVU(Categories item) {

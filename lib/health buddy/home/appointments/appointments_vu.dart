@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:health_buddy/health%20buddy/home/appointments/categeroies/categories_page_vu.dart';
 import '../../utils/widgets.dart';
 import './appointment_header_cell.dart';
 import './appointments_vm.dart';
 import 'package:stacked/stacked.dart';
 
-import 'categeroies/categories_page_vu.dart';
 import 'doctors/doctor_list_vu.dart';
 
 class AppointmentVU extends ViewModelBuilderWidget<AppointmentsVM> {

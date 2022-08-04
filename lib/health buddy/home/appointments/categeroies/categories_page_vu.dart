@@ -22,7 +22,11 @@ class CategoriesPageVU extends ViewModelBuilderWidget<CategoriesPageVM> {
             headingText(headingTxt: "Categories"),
             Padding(
               padding: const EdgeInsets.only(right: 24),
-              child: chiTextButton(btnTitle: "See All", onTap: () {}),
+              child: chiTextButton(
+                btnTitle: "See All",
+                onTap: () => CHIRouter.push(
+                    context, CategoriesListVU(vieModel: viewModel)),
+              ),
             )
           ],
         ),
@@ -63,45 +67,42 @@ class CategoriesPageVU extends ViewModelBuilderWidget<CategoriesPageVM> {
 }
 
 Widget categoriesPageCellVU(BuildContext context, CategoriesPageVM vieModel) {
-  return GestureDetector(
-    onTap: () => CHIRouter.push(context, CategoriesListVU(vieModel: vieModel)),
-    child: Padding(
-      padding: const EdgeInsets.only(
-        right: 8,
-      ),
-      child: Container(
-          width: 102,
-          padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 14),
-          decoration: BoxDecoration(
-              color: const Color(0xffffffff),
-              borderRadius: BorderRadius.circular(12),
-              border: Border.all(
-                width: 1,
-                color: const Color(0xffEAE9F0),
-              ),
-              boxShadow: [
-                BoxShadow(
-                  offset: const Offset(0, 0),
-                  color: const Color(0xff000000).withOpacity(0.06),
-                  blurRadius: 31,
-                  spreadRadius: 10,
-                )
-              ]),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SvgPicture.asset("assets/images/app_assets/heart.svg"),
-              const SizedBox(height: 12.0),
-              const Text(
-                "Cardiologist",
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w500,
-                  color: Color(0xff1D2939),
-                ),
-              ),
-            ],
-          )),
+  return Padding(
+    padding: const EdgeInsets.only(
+      right: 8,
     ),
+    child: Container(
+        width: 102,
+        padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 14),
+        decoration: BoxDecoration(
+            color: const Color(0xffffffff),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(
+              width: 1,
+              color: const Color(0xffEAE9F0),
+            ),
+            boxShadow: [
+              BoxShadow(
+                offset: const Offset(0, 0),
+                color: const Color(0xff000000).withOpacity(0.06),
+                blurRadius: 31,
+                spreadRadius: 10,
+              )
+            ]),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SvgPicture.asset("assets/images/app_assets/heart.svg"),
+            const SizedBox(height: 12.0),
+            const Text(
+              "Cardiologist",
+              style: TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+                color: Color(0xff1D2939),
+              ),
+            ),
+          ],
+        )),
   );
 }
