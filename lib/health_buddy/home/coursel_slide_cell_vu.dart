@@ -41,16 +41,21 @@ class CarouselSliderCellVU extends StatelessWidget {
 }
 
 Widget buildindicator(HomeVM viewModel) {
-  return Padding(
-    padding: const EdgeInsets.only(top: 8),
-    child: AnimatedSmoothIndicator(
-      activeIndex: viewModel.current,
-      count: 3,
-      effect: JumpingDotEffect(
-          activeDotColor: blue500,
-          dotHeight: 6,
-          dotWidth: 6,
-          dotColor: blue100),
-    ),
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Padding(
+        padding: const EdgeInsets.only(top: 8),
+        child: AnimatedSmoothIndicator(
+          activeIndex: viewModel.current,
+          count: 3,
+          effect: JumpingDotEffect(
+              activeDotColor: blue500,
+              dotHeight: 6,
+              dotWidth: 6,
+              dotColor: blue100),
+        ),
+      ),
+    ],
   );
 }
