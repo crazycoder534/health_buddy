@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import '../../utils/chi_router.dart';
 import '../../utils/widgets.dart';
 import './appointment_header_cell.dart';
 import './appointments_vm.dart';
 import 'package:stacked/stacked.dart';
 
 import 'categeroies/categories_list_vu.dart';
+import 'confirm_appointments_vu.dart';
 import 'doctors/doctor_list_vu.dart';
 
 class AppointmentVU extends ViewModelBuilderWidget<AppointmentsVM> {
@@ -28,6 +30,9 @@ class AppointmentVU extends ViewModelBuilderWidget<AppointmentsVM> {
                   height: 16,
                 ),
                 chiCustomRow(
+                    onPress: () {
+                      CHIRouter.push(context, const ConfirmAppointmentVU());
+                    },
                     title: "Book Appointment",
                     imageUrl: "assets/images/app_assets/calender.svg"),
                 const SizedBox(

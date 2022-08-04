@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../splash and on bord/onbord_vu.dart';
+import 'appointments/confirm_appointments_vu.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +17,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const OnBoardVU(),
+      // home: const OnBoardVU(),
+      home: const ConfirmAppointmentVU(),
     );
   }
 }
