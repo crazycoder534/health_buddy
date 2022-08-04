@@ -6,14 +6,18 @@ import '../../../../utils/widgets.dart';
 
 enum appointmentSelection { Online, Clinic }
 
-Future bottomSheet(context) {
+bottomSheet(context) {
   appointmentSelection selected = appointmentSelection.Online;
-  Color clr1 = grey100;
-  Color clr2 = grey100;
-  Color clr3 = grey100;
+  List<String> listViewData = [
+    "Regular",
+    "Follow up",
+    "Gold",
+  ];
+  int selectedIndex = 0;
   return showModalBottomSheet(
     context: context,
     backgroundColor: grey100,
+    isScrollControlled: true,
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(
         top: Radius.circular(25),
@@ -22,10 +26,16 @@ Future bottomSheet(context) {
     builder: (context) {
       return StatefulBuilder(
           builder: (BuildContext context, StateSetter setState) {
+        onSelected(int index) {
+          setState(() => selectedIndex = index);
+        }
+
         return Padding(
           padding:
               const EdgeInsets.only(top: 24, left: 24, right: 24, bottom: 0),
-          child: ListView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Row(
                 children: [
@@ -39,7 +49,15 @@ Future bottomSheet(context) {
                     style: titleTextStyle,
                   ),
                   const Spacer(),
-                  SvgPicture.asset("assets/images/app_assets/cross.svg"),
+                  // SvgPicture.asset("assets/images/app_assets/cross.svg"),
+                  IconButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(
+                        Icons.highlight_off,
+                        color: Colors.red,
+                      )),
                 ],
               ),
               const SizedBox(
@@ -50,6 +68,7 @@ Future bottomSheet(context) {
                 "Online",
                 Radio(
                   value: appointmentSelection.Online,
+                  activeColor: blue500,
                   groupValue: selected,
                   onChanged: (appointmentSelection? value) {
                     setState(() {
@@ -63,6 +82,7 @@ Future bottomSheet(context) {
                 "Clinic",
                 Radio(
                   value: appointmentSelection.Clinic,
+                  activeColor: blue500,
                   groupValue: selected,
                   onChanged: (appointmentSelection? value) {
                     setState(() {
@@ -81,46 +101,39 @@ Future bottomSheet(context) {
               const SizedBox(
                 height: 16,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  getContainer(
-                      width: 105,
-                      height: 48,
-                      label: 'Regular',
-                      clr: clr1,
-                      onTap: () {
-                        setState(() {
-                          clr2 = grey100;
-                          clr3 = grey100;
-                          clr1 = Colors.blue;
-                        });
-                      }),
-                  getContainer(
-                      width: 105,
-                      height: 48,
-                      label: 'Follow up',
-                      clr: clr2,
-                      onTap: () {
-                        setState(() {
-                          clr1 = grey100;
-                          clr3 = grey100;
-                          clr2 = Colors.blue;
-                        });
-                      }),
-                  getContainer(
-                      width: 89,
-                      height: 48,
-                      label: 'Gold',
-                      clr: clr3,
-                      onTap: () {
-                        setState(() {
-                          clr1 = grey100;
-                          clr2 = grey100;
-                          clr3 = Colors.blue;
-                        });
-                      }),
-                ],
+              SizedBox(
+                height: 48,
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: listViewData.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.only(left: 8),
+                        child: GestureDetector(
+                          onTap: () => onSelected(index),
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: selectedIndex == index
+                                    ? blue500
+                                    : whiteColor,
+                                border: Border.all(color: grey100),
+                                borderRadius: BorderRadius.circular(15)),
+                            width: 90,
+                            child: Center(
+                              child: Text(
+                                listViewData[index],
+                                style: TextStyle(
+                                    color: selectedIndex == index
+                                        ? whiteColor
+                                        : grey800,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w400),
+                              ),
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
               ),
               const SizedBox(
                 height: 28,
@@ -139,10 +152,15 @@ Future bottomSheet(context) {
 }
 
 Widget listTiles(String image, String title, Widget radioButton) {
-  return Card(
-    // elevation: 0.5,
-    child: Padding(
-      padding: const EdgeInsets.only(bottom: 5, top: 5, left: 8, right: 0),
+  return Padding(
+    padding: const EdgeInsets.only(top: 8),
+    child: Container(
+      // elevation: 0.5,
+      decoration: BoxDecoration(
+          boxShadow: cardShadow,
+          color: whiteColor,
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(width: 1, color: grey100)),
       child: ListTile(
         leading: SvgPicture.asset(image),
         title: Text(
@@ -155,28 +173,53 @@ Widget listTiles(String image, String title, Widget radioButton) {
   );
 }
 
-Widget getContainer(
-    {required double? width,
-    required double? height,
-    required String? label,
-    Color? clr,
-    required Function()? onTap}) {
-  return GestureDetector(
-    onTap: onTap,
-    child: Container(
-      decoration: BoxDecoration(
-          color: clr,
-          border: Border.all(color: const Color(0xffEAE9F0)),
-          borderRadius: BorderRadius.circular(15)),
-      height: height,
-      width: width,
-      child: Center(
-        child: Text(
-          label!,
-          style: prefixStyle,
-          // style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-        ),
-      ),
-    ),
-  );
-}
+// Widget getContainer(
+//     {required double? width,
+//     required double? height,
+//     required String? label,
+//     // required bool? isSelected,
+//     Color? clr,
+//     required Function()? onTap}) {
+//   return GestureDetector(
+//     onTap: onTap,
+//     child: Container(
+//       decoration: BoxDecoration(
+//           color: clr,
+//           border: Border.all(color: const Color(0xffEAE9F0)),
+//           borderRadius: BorderRadius.circular(15)),
+//       height: height,
+//       width: width,
+//       child: Center(
+//         child: Text(
+//           label!,
+//           style: prefixStyle,
+//           // style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+//         ),
+//       ),
+//     ),
+//   );
+// }
+
+// Widget getTypeContainer(
+//     {String? label,
+//     TextStyle? textStl,
+//     Color? bgClr,
+//     required Function()? onTap}) {
+//   return GestureDetector(
+//     onTap: onTap,
+//     child: Container(
+//       decoration: BoxDecoration(
+//           color: bgClr,
+//           border: Border.all(color: const Color(0xffEAE9F0)),
+//           borderRadius: BorderRadius.circular(15)),
+//       width: 90,
+//       child: Center(
+//         child: Text(
+//           label!,
+//           style: prefixStyle,
+//           // style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+//         ),
+//       ),
+//     ),
+//   );
+// }

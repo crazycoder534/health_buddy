@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:health_buddy/health%20buddy/home/appointments/doctors/doctor%20details/doctor_detail_vu.dart';
+import 'package:health_buddy/health%20buddy/splash%20and%20on%20bord/onbord_vu.dart';
 
 import '../../../../utils/constants.dart';
 
@@ -14,86 +14,69 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: CHITheme,
-      home: const DoctorDetailVU(),
+      home: const OnBoardVU(),
     );
   }
 }
 
-// import 'package:flutter/material.dart';
+// class MyHomePage extends StatefulWidget {
+//   @override
+//   _MyHomePageState createState() => _MyHomePageState();
+// }
 
-// void main() => runApp(MyApp());
+// class _MyHomePageState extends State<MyHomePage> {
+//   final List<String> _listViewData = [
+//     "Text 1",
+//     "Text 2",
+//     "Text 3",
+//   ];
 
-// /// This Widget is the main application widget.
-// class MyApp extends StatelessWidget {
-//   static const String _title = 'Radio Button Example';
+//   int _selectedIndex = 0;
+
+//   _onSelected(int index) {
+//     setState(() => _selectedIndex = index);
+//   }
 
 //   @override
 //   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: _title,
-//       home: Scaffold(
-//         appBar: AppBar(title: const Text(_title)),
-//         body: const Center(
-//           child: MyStatefulWidget(),
+//     return Scaffold(
+//       appBar: AppBar(
+//         backgroundColor: Colors.lightGreen,
+//         title: const Text(
+//           'Change ListView Bg Color',
+//           style: TextStyle(color: Colors.white),
 //         ),
 //       ),
-//     );
-//   }
-// }
-
-// enum BestTutorSite { javatpoint, w3schools, tutorialandexample }
-
-// class MyStatefulWidget extends StatefulWidget {
-//   const MyStatefulWidget({Key? key}) : super(key: key);
-
-//   @override
-//   _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
-// }
-
-// class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-//   BestTutorSite _site = BestTutorSite.javatpoint;
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return Column(
-//       children: <Widget>[
-//         ListTile(
-//           title: const Text('www.javatpoint.com'),
-//           leading: Radio(
-//             value: BestTutorSite.javatpoint,
-//             groupValue: _site,
-//             onChanged: (BestTutorSite? value) {
-//               setState(() {
-//                 _site = value!;
-//               });
-//             },
-//           ),
+//       body: Padding(
+//         padding: const EdgeInsets.all(10.0),
+//         child: SizedBox(
+//           height: 48,
+//           child: ListView.builder(
+//               scrollDirection: Axis.horizontal,
+//               itemCount: _listViewData.length,
+//               itemBuilder: (context, index) {
+//                 return GestureDetector(
+//                   onTap: () => _onSelected(index),
+//                   child: Container(
+//                     decoration: BoxDecoration(
+//                         color: _selectedIndex == index
+//                             ? Colors.lightGreen
+//                             : Colors.white,
+//                         border: Border.all(color: const Color(0xffEAE9F0)),
+//                         borderRadius: BorderRadius.circular(15)),
+//                     width: 90,
+//                     child: Center(
+//                       child: Text(
+//                         _listViewData[index],
+//                         style: prefixStyle,
+//                         // style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+//                       ),
+//                     ),
+//                   ),
+//                 );
+//               }),
 //         ),
-//         ListTile(
-//           title: const Text('www.w3school.com'),
-//           leading: Radio(
-//             value: BestTutorSite.w3schools,
-//             groupValue: _site,
-//             onChanged: (BestTutorSite? value) {
-//               setState(() {
-//                 _site = value!;
-//               });
-//             },
-//           ),
-//         ),
-//         ListTile(
-//           title: const Text('www.tutorialandexample.com'),
-//           leading: Radio(
-//             value: BestTutorSite.tutorialandexample,
-//             groupValue: _site,
-//             onChanged: (BestTutorSite? value) {
-//               setState(() {
-//                 _site = value!;
-//               });
-//             },
-//           ),
-//         ),
-//       ],
+//       ),
 //     );
 //   }
 // }

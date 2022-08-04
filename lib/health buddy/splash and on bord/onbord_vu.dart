@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:health_buddy/health%20buddy/login/login_vu.dart';
 import 'package:stacked/stacked.dart';
 import '../register/register_name_vu.dart';
 import '../utils/chi_router.dart';
@@ -12,6 +12,7 @@ class OnBoardVU extends ViewModelBuilderWidget<OnBordVM> {
 
   @override
   Widget builder(BuildContext context, OnBordVM viewModel, Widget? child) {
+    int indx = 0;
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -29,36 +30,39 @@ class OnBoardVU extends ViewModelBuilderWidget<OnBordVM> {
                 ],
               ),
               const SizedBox(
-                height: 12,
+                height: 8,
               ),
               Expanded(
                 child: PageView.builder(
-                  itemCount: 4,
+                  itemCount: viewModel.screens.length,
                   controller: viewModel.pageController,
                   onPageChanged: viewModel.changePage,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemBuilder: (BuildContext context, int index) {
+                  itemBuilder: (BuildContext context, indx) {
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SvgPicture.asset(
-                          viewModel.screens[index].image,
-                          height: 425,
-                          width: 330,
+                        SizedBox(
+                          height: 400,
+                          child: Image.asset(
+                            viewModel.screens[indx].image,
+                            fit: BoxFit.fill,
+                            width: 330,
+                          ),
                         ),
                         const SizedBox(
                           height: 40,
                         ),
                         Text(
-                          viewModel.screens[index].titleText,
+                          viewModel.screens[indx].titleText,
                           style: titleTextStyle,
                         ),
                         const SizedBox(
                           height: 4,
                         ),
                         Text(
-                          viewModel.screens[index].subtitleText,
+                          viewModel.screens[indx].subtitleText,
                           style: subTitleTextStyle,
                         ),
                         const Spacer(),
@@ -86,6 +90,12 @@ class OnBoardVU extends ViewModelBuilderWidget<OnBordVM> {
                   ArrowButton(
                     leftAngle: false,
                     onTap: () {
+                      if (indx == viewModel.screens.length - 1) {
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginVU()));
+                      }
                       viewModel.onIncreament();
                       viewModel.pageController.nextPage(
                         duration: const Duration(milliseconds: 100),
