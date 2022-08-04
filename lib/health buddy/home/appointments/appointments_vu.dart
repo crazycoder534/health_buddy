@@ -51,6 +51,7 @@ class AppointmentVU extends ViewModelBuilderWidget<AppointmentsVM> {
       ),
     );
   }
+  //
 
   @override
   AppointmentsVM viewModelBuilder(BuildContext context) {
