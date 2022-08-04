@@ -63,10 +63,12 @@ class ArrowButton extends StatelessWidget {
 
 class CHITextField extends StatelessWidget {
   final List<String>? items;
+  final VoidCallback? onTap;
   final Widget? prefixIcon;
   final void Function(String?)? onChanged;
   final String value;
   final String hintText;
+  final bool? enabled;
   final TextAlignVertical? textAlignVertical;
   const CHITextField(
       {Key? key,
@@ -75,7 +77,9 @@ class CHITextField extends StatelessWidget {
       this.value = 'PK',
       required this.hintText,
       this.prefixIcon,
-      this.textAlignVertical})
+      this.textAlignVertical,
+      this.onTap,
+      this.enabled})
       : super(key: key);
 
   @override
@@ -121,6 +125,8 @@ class CHITextField extends StatelessWidget {
               : const SizedBox.shrink(),
           Expanded(
             child: TextField(
+              onTap: onTap,
+              enabled: enabled,
               textAlignVertical: textAlignVertical,
               style: subTitleTextStyle.copyWith(color: grey800),
               keyboardType:

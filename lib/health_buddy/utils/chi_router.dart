@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 
 class CHIRouter {
   static push(BuildContext context, Widget nextPage) {
-    return Navigator.push(
-        context, MaterialPageRoute(builder: (context) => nextPage));
+    return Navigator.push(context, ThisIsFadeRoute(route: nextPage));
   }
 
   static pushReplacement(BuildContext context, Widget nextPage) {
-    return Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => nextPage));
+    return Navigator.pushReplacement(context, ThisIsFadeRoute(route: nextPage));
   }
 
   static pushNamed(BuildContext context, String routeName) {

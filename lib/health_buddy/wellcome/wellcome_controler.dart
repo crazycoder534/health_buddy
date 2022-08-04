@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../onbord/onbord_vu.dart';
+import '../utils/chi_router.dart';
 import 'wellcome_vu.dart';
 
 class WellcomeController extends StatefulWidget {
@@ -26,11 +27,7 @@ class _WellcomeControllerState extends State<WellcomeController>
     )..addStatusListener(
         (status) {
           if (status == AnimationStatus.completed) {
-            Navigator.of(context).pushReplacement(
-              ThisIsFadeRoute(
-                route: const OnBoardVU(),
-              ),
-            );
+            CHIRouter.pushReplacement(context, const OnBoardVU());
             Timer(
               const Duration(seconds: 2),
               () {
