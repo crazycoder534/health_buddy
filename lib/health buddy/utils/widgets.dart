@@ -466,27 +466,30 @@ class CHIAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        GestureDetector(
-            child: actionButtonContainer(const Color(0xffE0F2FE),
-                imageUrl: 'assets/images/app_assets/arrow.svg',
-                width: 10,
-                height: 10),
-            onTap: () => Navigator.pop(context)),
-        Text(
-          title,
-          style: titleTextStyle,
-        ),
-        GestureDetector(
-          onTap: onHomeTap,
-          child: actionButtonContainer(const Color(0xffE0F2FE),
-              width: 16,
-              height: 16,
-              imageUrl: 'assets/images/app_assets/shape.svg'),
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(24, 24, 24, 16),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          GestureDetector(
+              child: actionButtonContainer(blue100,
+                  imageUrl: 'assets/images/app_assets/arrow.svg',
+                  width: 10,
+                  height: 10),
+              onTap: () => Navigator.pop(context)),
+          Text(
+            title,
+            style: titleTextStyle,
+          ),
+          GestureDetector(
+            onTap: onHomeTap,
+            child: actionButtonContainer(blue100,
+                width: 16,
+                height: 16,
+                imageUrl: 'assets/images/app_assets/shape.svg'),
+          ),
+        ],
+      ),
     );
   }
 }

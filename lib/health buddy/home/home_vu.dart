@@ -13,15 +13,19 @@ class HomeVU extends ViewModelBuilderWidget<HomeVM> {
   Widget builder(BuildContext context, HomeVM viewModel, Widget? child) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const HeaderCellVU(),
-              CarouselSliderCellVU(viewModel: viewModel),
-              buildindicator(viewModel),
-              const BottomSummeryCellVU()
-            ],
-          ),
+        child: Column(
+          children: [
+            const HeaderCellVU(),
+            Expanded(
+              child: ListView(
+                children: [
+                  CarouselSliderCellVU(viewModel: viewModel),
+                  buildindicator(viewModel),
+                  const BottomSummeryCellVU()
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

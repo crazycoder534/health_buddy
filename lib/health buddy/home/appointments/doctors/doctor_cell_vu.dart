@@ -3,7 +3,8 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../utils/constants.dart';
 
-Widget doctorListCellVu() {
+Widget doctorListCellVu(
+    String name, String speciality, String location, double fee, String image) {
   return Padding(
     padding: const EdgeInsets.only(left: 24, right: 24, bottom: 12),
     child: Container(
@@ -25,17 +26,17 @@ Widget doctorListCellVu() {
             ]),
         child: Column(
           children: [
-            firstSectionVU(),
+            firstSectionVU(name, speciality, fee, image),
             const SizedBox(
               height: 16.0,
             ),
-            secondSectionVU()
+            secondSectionVU(location)
           ],
         )),
   );
 }
 
-Widget secondSectionVU() {
+Widget secondSectionVU(String location) {
   return Row(
     children: [
       SvgPicture.asset(
@@ -44,9 +45,9 @@ Widget secondSectionVU() {
       const SizedBox(
         width: 8.0,
       ),
-      const Text(
-        'eClinic Lahore',
-        style: TextStyle(
+      Text(
+        location.toString(),
+        style: const TextStyle(
             color: Color(0xff98A2B3),
             fontSize: 12,
             fontWeight: FontWeight.w400),
@@ -69,11 +70,11 @@ Widget secondSectionVU() {
   );
 }
 
-Row firstSectionVU() {
+Row firstSectionVU(String name, String speciality, double fee, String image) {
   return Row(
     children: [
       SvgPicture.asset(
-        "assets/images/app_assets/appointment.svg",
+        image,
         width: 48,
         height: 46,
       ),
@@ -82,23 +83,16 @@ Row firstSectionVU() {
       ),
       Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          Text(
-            'Dr. Shah Zaman',
-            style: TextStyle(
-                color: Color(0xff1D2939),
-                fontSize: 16,
-                fontWeight: FontWeight.w600),
-          ),
-          SizedBox(
+        children: [
+          Text(name,
+              style: subTitleTextStyle.copyWith(
+                  color: grey800, fontWeight: FontWeight.w600)),
+          const SizedBox(
             height: 6,
           ),
           Text(
-            'Pshchologiest',
-            style: TextStyle(
-                color: Color(0xff98A2B3),
-                fontSize: 14,
-                fontWeight: FontWeight.w400),
+            speciality,
+            style: subTitleTextStyle.copyWith(fontSize: 14),
           )
         ],
       ),
@@ -106,17 +100,17 @@ Row firstSectionVU() {
       Column(
         children: [
           RichText(
-            text: const TextSpan(
+            text: TextSpan(
                 text: 'Rs: ',
-                style: TextStyle(
+                style: const TextStyle(
                     color: Color(0xff98A2B3),
                     fontSize: 12,
                     fontWeight: FontWeight.w400),
                 children: [
                   TextSpan(
-                    text: '2000',
+                    text: fee.toString(),
                     style: TextStyle(
-                        color: Color(0xff0BA5EC),
+                        color: blue500,
                         fontSize: 16,
                         fontWeight: FontWeight.w600),
                   )
@@ -131,13 +125,7 @@ Row firstSectionVU() {
               const SizedBox(
                 width: 6.0,
               ),
-              const Text(
-                '4.5 (23)',
-                style: TextStyle(
-                    color: Color(0xff98A2B3),
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400),
-              ),
+              Text('4.5 (23)', style: subTitleTextStyle.copyWith(fontSize: 14)),
             ],
           )
         ],

@@ -16,10 +16,7 @@ class AllDoctorsListVU extends ViewModelBuilderWidget<AllDoctorsListVM> {
       body: SafeArea(
         child: Column(
           children: [
-            const Padding(
-              padding: EdgeInsets.all(24),
-              child: CHIAppBar(title: 'Doctors'),
-            ),
+            const CHIAppBar(title: 'Doctors'),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: CHITextField(
@@ -31,13 +28,14 @@ class AllDoctorsListVU extends ViewModelBuilderWidget<AllDoctorsListVM> {
             const SizedBox(height: 16),
             Expanded(
               child: ListView.builder(
-                itemCount: 20,
+                itemCount: viewModel.doctors.length,
                 itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      doctorListCellVu(),
-                      const SizedBox(height: 8),
-                    ],
+                  return doctorListCellVu(
+                    viewModel.doctors[index].name,
+                    viewModel.doctors[index].speciality,
+                    viewModel.doctors[index].location,
+                    viewModel.doctors[index].fee,
+                    viewModel.doctors[index].image,
                   );
                 },
               ),

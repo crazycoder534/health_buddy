@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:health_buddy/health%20buddy/utils/chi_router.dart';
 import '../../../utils/widgets.dart';
+import 'all doctors/all_doctors_list_vu.dart';
 import 'doctor_cell_vu.dart';
 
 class DoctorListVU extends StatelessWidget {
@@ -15,7 +17,11 @@ class DoctorListVU extends StatelessWidget {
             headingText(headingTxt: "Top Doctors"),
             Padding(
               padding: const EdgeInsets.only(right: 24),
-              child: chiTextButton(btnTitle: "See All", onTap: () {}),
+              child: chiTextButton(
+                  btnTitle: "See All",
+                  onTap: () {
+                    CHIRouter.push(context, const AllDoctorsListVU());
+                  }),
             )
           ],
         ),
@@ -26,9 +32,15 @@ class DoctorListVU extends StatelessWidget {
           shrinkWrap: true,
           physics: const NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
-            return doctorListCellVu();
+            return doctorListCellVu(
+              'Dr.Shah Zaman',
+              'Psychologiest',
+              'eClinic Lahore',
+              2000,
+              'assets/images/app_assets/appointment.svg',
+            );
           },
-          itemCount: 2,
+          itemCount: 5,
         ),
       ],
     );
