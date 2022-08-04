@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:health_buddy/health_buddy/home/appointments/doctors/doctor_details/doctor_detail_vu.dart';
 import 'health_buddy/utils/constants.dart';
-import 'health_buddy/wellcome/wellcome_controler.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: CHITheme,
-      home: const WellcomeController(),
+      home: const DoctorDetailVU(),
     );
   }
 }
