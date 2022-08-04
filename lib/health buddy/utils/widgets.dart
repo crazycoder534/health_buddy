@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../home/header_cell_vu.dart';
 import 'constants.dart';
 
 class CHIButton extends StatelessWidget {
@@ -62,6 +63,7 @@ class ArrowButton extends StatelessWidget {
 
 class CHITextField extends StatelessWidget {
   final List<String>? items;
+  final Widget? prefixIcon;
   final void Function(String?)? onChanged;
   final String value;
   final String hintText;
@@ -70,7 +72,8 @@ class CHITextField extends StatelessWidget {
       this.items,
       this.onChanged,
       this.value = 'PK',
-      required this.hintText})
+      required this.hintText,
+      this.prefixIcon})
       : super(key: key);
 
   @override
@@ -116,10 +119,12 @@ class CHITextField extends StatelessWidget {
               : const SizedBox.shrink(),
           Expanded(
             child: TextField(
-              style: subTitleTextStyle,
+              textAlignVertical: TextAlignVertical.center,
+              style: subTitleTextStyle.copyWith(color: grey800),
               keyboardType:
                   items != null ? TextInputType.phone : TextInputType.name,
               decoration: InputDecoration(
+                prefixIcon: prefixIcon,
                 border: InputBorder.none,
                 contentPadding: const EdgeInsets.only(left: 8),
                 hintText: hintText,
@@ -141,7 +146,7 @@ Widget chiBanner(
     width: double.infinity,
     padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
     decoration: BoxDecoration(
-      color: bannerColor,
+      color: blue100,
       borderRadius: BorderRadius.circular(8),
     ),
     child: Row(
@@ -449,6 +454,39 @@ class SocialButton extends StatelessWidget {
         color: grey100,
         child: SvgPicture.asset(icon, fit: BoxFit.scaleDown),
       ),
+    );
+  }
+}
+
+class CHIAppBar extends StatelessWidget {
+  final VoidCallback? onHomeTap;
+  final String title;
+  const CHIAppBar({Key? key, this.onHomeTap, required this.title})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        GestureDetector(
+            child: actionButtonContainer(const Color(0xffE0F2FE),
+                imageUrl: 'assets/images/app_assets/arrow.svg',
+                width: 10,
+                height: 10),
+            onTap: () => Navigator.pop(context)),
+        Text(
+          title,
+          style: titleTextStyle,
+        ),
+        GestureDetector(
+          onTap: onHomeTap,
+          child: actionButtonContainer(const Color(0xffE0F2FE),
+              width: 16,
+              height: 16,
+              imageUrl: 'assets/images/app_assets/shape.svg'),
+        ),
+      ],
     );
   }
 }

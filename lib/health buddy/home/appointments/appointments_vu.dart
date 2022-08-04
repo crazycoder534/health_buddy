@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../utils/widgets.dart';
-import './appointment_header_cell.dart';
 import './appointments_vm.dart';
 import 'package:stacked/stacked.dart';
 
@@ -14,15 +13,14 @@ class AppointmentVU extends ViewModelBuilderWidget<AppointmentsVM> {
   Widget builder(
       BuildContext context, AppointmentsVM viewModel, Widget? child) {
     return Scaffold(
-      backgroundColor: const Color(0xffFCFCFD),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.only(top: 24, bottom: 24),
+            padding: const EdgeInsets.all(24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const AppointmentHeaderCellVU(),
+                const CHIAppBar(title: 'Appointments'),
                 headingText(headingTxt: "Appointments & Prescriptions"),
                 const SizedBox(
                   height: 16,
