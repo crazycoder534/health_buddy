@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:health_buddy/health_buddy/register/register%20form/register_form_vu.dart';
 import 'package:stacked/stacked.dart';
-import '../../home/home_vu.dart';
 import '../../utils/chi_router.dart';
 import '../../utils/constants.dart';
 import '../../utils/widgets.dart';
@@ -45,7 +45,8 @@ class RegisterVerifyCodeVU
                   ),
                   const Spacer(),
                   ResendButton(
-                    onTap: () => CHIRouter.push(context, const HomeVU()),
+                    onTap: () =>
+                        CHIRouter.push(context, const RegisterFormVU()),
                   )
                 ],
               ),

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:health_buddy/health_buddy/home/appointments/doctors/search%20doctor/search_doctor_vu.dart';
-import 'package:health_buddy/health_buddy/utils/chi_router.dart';
 import 'package:stacked/stacked.dart';
 
 import '../../../../utils/constants.dart';
@@ -21,17 +19,11 @@ class AllDoctorsListVU extends ViewModelBuilderWidget<AllDoctorsListVM> {
             const CHIAppBar(title: 'Doctors'),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
-              child: GestureDetector(
-                child: CHITextField(
-                  hintText: 'Search doctor',
-                  textAlignVertical: TextAlignVertical.center,
-                  prefixIcon: SvgPicture.asset('assets/icons/search.svg',
-                      color: grey400, fit: BoxFit.scaleDown),
-                  enabled: false,
-                ),
-                onTap: () {
-                  CHIRouter.push(context, const SearchDoctorVU());
-                },
+              child: CHITextField(
+                hintText: 'Search doctor',
+                textAlignVertical: TextAlignVertical.center,
+                prefixIcon: SvgPicture.asset('assets/icons/search.svg',
+                    color: grey400, fit: BoxFit.scaleDown),
               ),
             ),
             const SizedBox(height: 16),

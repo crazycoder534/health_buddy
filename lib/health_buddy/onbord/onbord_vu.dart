@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:health_buddy/health_buddy/login/login_vu.dart';
 import 'package:stacked/stacked.dart';
-import '../register/register_name_vu.dart';
 import '../utils/chi_router.dart';
 import '../utils/constants.dart';
 import '../utils/widgets.dart';
@@ -23,8 +23,7 @@ class OnBoardVU extends ViewModelBuilderWidget<OnBordVM> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   SkipButton(
-                    onTap: () =>
-                        CHIRouter.push(context, const RegisterNameVU()),
+                    onTap: () => CHIRouter.push(context, const LoginVU()),
                   ),
                 ],
               ),

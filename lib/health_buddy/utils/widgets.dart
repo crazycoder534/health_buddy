@@ -63,12 +63,11 @@ class ArrowButton extends StatelessWidget {
 
 class CHITextField extends StatelessWidget {
   final List<String>? items;
-  final VoidCallback? onTap;
   final Widget? prefixIcon;
   final void Function(String?)? onChanged;
   final String value;
   final String hintText;
-  final bool? enabled;
+  final TextInputType? keyboardType;
   final TextAlignVertical? textAlignVertical;
   const CHITextField(
       {Key? key,
@@ -78,18 +77,17 @@ class CHITextField extends StatelessWidget {
       required this.hintText,
       this.prefixIcon,
       this.textAlignVertical,
-      this.onTap,
-      this.enabled})
+      this.keyboardType})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.all(12),
       height: 56,
       decoration: BoxDecoration(
-          color: cardColor,
+          color: whiteColor,
           border: Border.all(color: grey100, width: 1.0),
           borderRadius: BorderRadius.circular(8),
           boxShadow: [
@@ -125,16 +123,13 @@ class CHITextField extends StatelessWidget {
               : const SizedBox.shrink(),
           Expanded(
             child: TextField(
-              onTap: onTap,
-              enabled: enabled,
               textAlignVertical: textAlignVertical,
               style: subTitleTextStyle.copyWith(color: grey800),
-              keyboardType:
-                  items != null ? TextInputType.phone : TextInputType.name,
+              keyboardType: keyboardType,
               decoration: InputDecoration(
                 prefixIcon: prefixIcon,
                 border: InputBorder.none,
-                contentPadding: const EdgeInsets.only(left: 8),
+                // contentPadding: const EdgeInsets.symmetric(vertical: 14),
                 hintText: hintText,
                 hintStyle: subTitleTextStyle,
               ),
@@ -406,21 +401,6 @@ class OTPBox extends StatelessWidget {
         value.toString(),
         style: subTitleTextStyle.copyWith(
             fontSize: 48, fontWeight: FontWeight.w500, letterSpacing: -2),
-      ),
-    );
-  }
-}
-
-class FormFieldTile extends StatelessWidget {
-  const FormFieldTile({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      leading: const Icon(Icons.calendar_today),
-      title: Text(
-        'Date of birth',
-        style: subTitleTextStyle,
       ),
     );
   }
