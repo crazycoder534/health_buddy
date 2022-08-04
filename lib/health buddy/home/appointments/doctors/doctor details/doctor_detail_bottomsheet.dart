@@ -7,7 +7,7 @@ import '../../../../utils/widgets.dart';
 enum appointmentSelection { Online, Clinic }
 
 Future bottomSheet(context) {
-  appointmentSelection site = appointmentSelection.Online;
+  appointmentSelection selected = appointmentSelection.Online;
   Color clr1 = grey100;
   Color clr2 = grey100;
   Color clr3 = grey100;
@@ -23,7 +23,8 @@ Future bottomSheet(context) {
       return StatefulBuilder(
           builder: (BuildContext context, StateSetter setState) {
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+          padding:
+              const EdgeInsets.only(top: 24, left: 24, right: 24, bottom: 0),
           child: ListView(
             children: [
               Row(
@@ -42,17 +43,17 @@ Future bottomSheet(context) {
                 ],
               ),
               const SizedBox(
-                height: 24,
+                height: 16,
               ),
               listTiles(
                 "assets/images/app_assets/camera.svg",
                 "Online",
                 Radio(
                   value: appointmentSelection.Online,
-                  groupValue: site,
+                  groupValue: selected,
                   onChanged: (appointmentSelection? value) {
                     setState(() {
-                      site = value!;
+                      selected = value!;
                     });
                   },
                 ),
@@ -62,10 +63,10 @@ Future bottomSheet(context) {
                 "Clinic",
                 Radio(
                   value: appointmentSelection.Clinic,
-                  groupValue: site,
+                  groupValue: selected,
                   onChanged: (appointmentSelection? value) {
                     setState(() {
-                      site = value!;
+                      selected = value!;
                     });
                   },
                 ),
@@ -78,7 +79,7 @@ Future bottomSheet(context) {
                 style: titleTextStyle,
               ),
               const SizedBox(
-                height: 28,
+                height: 16,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -139,16 +140,14 @@ Future bottomSheet(context) {
 
 Widget listTiles(String image, String title, Widget radioButton) {
   return Card(
-    elevation: 0.5,
+    // elevation: 0.5,
     child: Padding(
-      padding: const EdgeInsets.all(5.0),
+      padding: const EdgeInsets.only(bottom: 5, top: 5, left: 8, right: 0),
       child: ListTile(
-        contentPadding: const EdgeInsets.only(top: 10, bottom: 10, left: 5),
-        dense: true,
         leading: SvgPicture.asset(image),
         title: Text(
           title,
-          style: titleTextStyle,
+          style: prefixStyle,
         ),
         trailing: radioButton,
       ),
@@ -174,7 +173,8 @@ Widget getContainer(
       child: Center(
         child: Text(
           label!,
-          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+          style: prefixStyle,
+          // style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
         ),
       ),
     ),
