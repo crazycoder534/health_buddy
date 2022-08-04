@@ -4,7 +4,7 @@ import './appointment_header_cell.dart';
 import './appointments_vm.dart';
 import 'package:stacked/stacked.dart';
 
-import 'categeroies/categories_list_vu.dart';
+import 'categeroies/categories_page_vu.dart';
 import 'doctors/doctor_list_vu.dart';
 
 class AppointmentVU extends ViewModelBuilderWidget<AppointmentsVM> {
@@ -39,7 +39,7 @@ class AppointmentVU extends ViewModelBuilderWidget<AppointmentsVM> {
                 const SizedBox(
                   height: 24,
                 ),
-                const CategoriesListVU(),
+                const CategoriesPageVU(),
                 const SizedBox(
                   height: 24,
                 ),
