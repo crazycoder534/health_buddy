@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:health_buddy/health%20buddy/utils/constants.dart';
+
+import '../utils/constants.dart';
 
 class HeaderCellVU extends StatelessWidget {
   const HeaderCellVU({Key? key}) : super(key: key);

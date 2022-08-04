@@ -17,9 +17,7 @@ class AppointmentVU extends ViewModelBuilderWidget<AppointmentsVM> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const CHIAppBar(
-              title: 'Appointments',
-            ),
+            const CHIAppBar(title: 'Appointments'),
             Expanded(
               child: ListView(
                 children: [

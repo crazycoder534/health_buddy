@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:health_buddy/health%20buddy/register/register_number_vu.dart';
-import 'package:health_buddy/health%20buddy/utils/chi_router.dart';
-import 'package:health_buddy/health%20buddy/utils/constants.dart';
-import 'package:health_buddy/health%20buddy/utils/widgets.dart';
 import 'package:stacked/stacked.dart';
-
+import '../../health_buddy/register/register_number_vu.dart';
+import '../utils/chi_router.dart';
+import '../utils/constants.dart';
+import '../utils/widgets.dart';
 import 'register_name_vm.dart';
 
 class RegisterNameVU extends ViewModelBuilderWidget<RegisterNameVM> {

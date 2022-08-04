@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:health_buddy/health%20buddy/utils/chi_router.dart';
-import 'package:health_buddy/health%20buddy/utils/constants.dart';
-import 'package:health_buddy/health%20buddy/utils/widgets.dart';
 import 'package:stacked/stacked.dart';
 import '../../home/home_vu.dart';
+import '../../utils/chi_router.dart';
+import '../../utils/constants.dart';
+import '../../utils/widgets.dart';
 import 'register_verification_code_vm.dart';
 
 class RegisterVerifyCodeVU

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:health_buddy/health%20buddy/register/register%20verification/register_verification_code_vu.dart';
-import 'package:health_buddy/health%20buddy/utils/chi_router.dart';
-import 'package:health_buddy/health%20buddy/utils/constants.dart';
-import 'package:health_buddy/health%20buddy/utils/widgets.dart';
 import 'package:stacked/stacked.dart';
 
+import '../utils/chi_router.dart';
+import '../utils/constants.dart';
+import '../utils/widgets.dart';
+import 'register verification/register_verification_code_vu.dart';
 import 'register_number_vm.dart';
 
 class RegisterNumberVU extends ViewModelBuilderWidget<RegisterNumberVM> {

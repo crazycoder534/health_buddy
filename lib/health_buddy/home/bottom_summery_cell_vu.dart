@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:health_buddy/health%20buddy/utils/chi_router.dart';
+import '../utils/chi_router.dart';
 import '../utils/widgets.dart';
 import 'appointments/appointments_vu.dart';
 

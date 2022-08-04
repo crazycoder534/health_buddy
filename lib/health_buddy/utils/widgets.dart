@@ -67,13 +67,15 @@ class CHITextField extends StatelessWidget {
   final void Function(String?)? onChanged;
   final String value;
   final String hintText;
+  final TextAlignVertical? textAlignVertical;
   const CHITextField(
       {Key? key,
       this.items,
       this.onChanged,
       this.value = 'PK',
       required this.hintText,
-      this.prefixIcon})
+      this.prefixIcon,
+      this.textAlignVertical})
       : super(key: key);
 
   @override
@@ -119,7 +121,7 @@ class CHITextField extends StatelessWidget {
               : const SizedBox.shrink(),
           Expanded(
             child: TextField(
-              textAlignVertical: TextAlignVertical.center,
+              textAlignVertical: textAlignVertical,
               style: subTitleTextStyle.copyWith(color: grey800),
               keyboardType:
                   items != null ? TextInputType.phone : TextInputType.name,
@@ -368,9 +370,12 @@ class SkipButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Text(
-        'Skip',
-        style: TextStyle(fontSize: 14, color: Colors.lightBlue[500]),
+      child: SizedBox(
+        height: 36,
+        child: Text(
+          'Skip',
+          style: TextStyle(fontSize: 14, color: Colors.lightBlue[500]),
+        ),
       ),
     );
   }

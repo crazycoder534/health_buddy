@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:health_buddy/health%20buddy/home/appointments/doctors/doctor_cell_vu.dart';
-import 'package:health_buddy/health%20buddy/utils/constants.dart';
-import 'package:health_buddy/health%20buddy/utils/widgets.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../../../utils/constants.dart';
+import '../../../../utils/widgets.dart';
+import '../doctor_cell_vu.dart';
 import 'all_doctors_list_vm.dart';
 
 class AllDoctorsListVU extends ViewModelBuilderWidget<AllDoctorsListVM> {
@@ -21,6 +21,7 @@ class AllDoctorsListVU extends ViewModelBuilderWidget<AllDoctorsListVM> {
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: CHITextField(
                 hintText: 'Search doctor',
+                textAlignVertical: TextAlignVertical.center,
                 prefixIcon: SvgPicture.asset('assets/icons/search.svg',
                     color: grey400, fit: BoxFit.scaleDown),
               ),

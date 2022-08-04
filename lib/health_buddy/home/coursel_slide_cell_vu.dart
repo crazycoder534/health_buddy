@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:health_buddy/health%20buddy/utils/constants.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import '../utils/constants.dart';
 import '../utils/widgets.dart';
 import 'home_vm.dart';
 
