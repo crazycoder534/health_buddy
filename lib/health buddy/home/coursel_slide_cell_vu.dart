@@ -21,7 +21,7 @@ class CarouselSliderCellVU extends StatelessWidget {
             initialPage: 0,
             enableInfiniteScroll: false,
             enlargeStrategy: CenterPageEnlargeStrategy.height,
-            height: 102,
+            height: 106,
             onPageChanged: (index, reason) {
               viewModel.current = index;
               viewModel.notifyListeners();
