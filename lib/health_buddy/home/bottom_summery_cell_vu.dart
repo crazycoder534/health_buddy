@@ -22,8 +22,8 @@ class BottomSummeryCellVU extends StatelessWidget {
             width: 95.48,
             title: 'Appointments',
             title2: 'Check Symptoms',
-            imageUrl: 'assets/images/app_assets/group2.svg',
-            imageUrl2: 'assets/images/app_assets/group3.svg',
+            imageUrl: 'assets/images/app_assets/appointments.svg',
+            imageUrl2: 'assets/images/app_assets/symptom.svg',
           ),
           const SizedBox(height: 12),
           Row(
@@ -31,14 +31,14 @@ class BottomSummeryCellVU extends StatelessWidget {
               Expanded(
                 child: chiContainer(
                     title: 'My Health',
-                    imageUrl: 'assets/images/app_assets/group4.svg',
+                    imageUrl: 'assets/images/app_assets/health.svg',
                     width: 70),
               ),
               const SizedBox(width: 12),
               Expanded(
                 child: chiContainer(
                   title: 'Subscriptions',
-                  imageUrl: 'assets/images/app_assets/group5.svg',
+                  imageUrl: 'assets/images/app_assets/subscription.svg',
                   width: 70,
                 ),
               ),
@@ -50,14 +50,14 @@ class BottomSummeryCellVU extends StatelessWidget {
               Expanded(
                 child: chiContainer(
                     title: 'Messages',
-                    imageUrl: 'assets/images/app_assets/messages.svg',
+                    imageUrl: 'assets/images/app_assets/message.svg',
                     width: 70),
               ),
               const SizedBox(width: 12),
               Expanded(
                 child: chiContainer(
                     title: 'Command Center',
-                    imageUrl: 'assets/images/app_assets/phone.svg',
+                    imageUrl: 'assets/images/app_assets/command.svg',
                     width: 70),
               ),
             ],

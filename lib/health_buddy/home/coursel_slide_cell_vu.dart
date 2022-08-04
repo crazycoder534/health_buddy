@@ -34,7 +34,7 @@ class CarouselSliderCellVU extends StatelessWidget {
                 title: "Free Live Chat",
                 subTitle:
                     "Ab ghar bathay he doctor sy muft mashwara hasil karen.",
-                imageUrl: "assets/images/app_assets/group1.svg"),
+                imageUrl: "assets/images/app_assets/chat.svg"),
           );
         });
   }

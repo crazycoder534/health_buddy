@@ -69,13 +69,13 @@ List<BoxShadow> cardShadow = [
   BoxShadow(
     offset: const Offset(0, 0),
     blurRadius: 31,
-    spreadRadius: 10,
+    spreadRadius: -10,
     color: const Color(0xff000000).withOpacity(0.06),
   ),
   BoxShadow(
     offset: const Offset(0, 0),
     blurRadius: 31,
-    spreadRadius: 10,
+    spreadRadius: -10,
     color: const Color(0xff000000).withOpacity(0.06),
   ),
 ];
