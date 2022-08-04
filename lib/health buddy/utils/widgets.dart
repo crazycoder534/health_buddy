@@ -141,7 +141,7 @@ Widget chiBanner(
     width: double.infinity,
     padding: const EdgeInsets.fromLTRB(16, 14, 16, 14),
     decoration: BoxDecoration(
-      color: blue100,
+      color: bannerColor,
       borderRadius: BorderRadius.circular(8),
     ),
     child: Row(
@@ -157,7 +157,7 @@ Widget chiBanner(
               width: 192,
               child: Text(
                 subTitle,
-                style: subTitleTextStyle.copyWith(fontSize: 14),
+                style: subTitleTextStyle.copyWith(fontSize: 14, color: grey500),
               ),
             ),
           ],

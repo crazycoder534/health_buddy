@@ -6,10 +6,12 @@ Color blue100 = Colors.lightBlue[100]!;
 Color grey100 = Colors.grey[100]!;
 Color grey400 = Colors.grey[400]!;
 Color grey800 = Colors.grey[800]!;
+Color grey500 = Colors.grey[500]!;
 Color whiteColor = Colors.white;
 Color appBgColor = const Color(0xfffcfcfd);
 Color cardColor = Colors.white;
 Color cardBorderColor = grey100;
+Color bannerColor = const Color(0xffE0F2FE);
 
 //TEXT STYLES
 TextStyle titleTextStyle =
