@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:health_buddy/health%20buddy/home/appointments/categeroies/categories_page_vu.dart';
+import './categeroies/categories_page_vu.dart';
 import '../../utils/widgets.dart';
 import './appointments_vm.dart';
 import 'package:stacked/stacked.dart';
