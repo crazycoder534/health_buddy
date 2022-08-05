@@ -108,8 +108,15 @@ class CHITextField extends StatelessWidget {
         children: [
           items != null
               ? DropdownButton(
+                  alignment: Alignment.bottomCenter,
                   underline: const SizedBox.shrink(),
-                  icon: SvgPicture.asset('assets/icons/arrow_down.svg'),
+                  icon: Row(
+                    children: [
+                      const SizedBox(width: 12),
+                      SvgPicture.asset('assets/icons/arrow_down.svg'),
+                      const SizedBox(width: 12),
+                    ],
+                  ),
                   iconSize: 8,
                   value: value,
                   items: items!.map((String item) {
@@ -369,14 +376,11 @@ class SkipButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: SizedBox(
-        height: 36,
-        child: Text(
-          'Skip',
-          style: TextStyle(fontSize: 14, color: Colors.lightBlue[500]),
-        ),
+    return TextButton(
+      onPressed: onTap,
+      child: Text(
+        'Skip',
+        style: TextStyle(fontSize: 14, color: Colors.lightBlue[500]),
       ),
     );
   }
