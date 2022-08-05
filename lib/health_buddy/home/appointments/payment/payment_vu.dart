@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:health_buddy/health_buddy/home/appointments/payment/payment_method.dart';
 import 'package:health_buddy/health_buddy/home/appointments/payment/total_payment.dart';
 
 import 'package:stacked/stacked.dart';
@@ -56,9 +57,13 @@ class PaymentVU extends ViewModelBuilderWidget<PaymentVM> {
                   const SizedBox(
                     height: 12,
                   ),
-                  headingText(headingTxt: "Payment Method"),
-                  const SizedBox(
-                    height: 24,
+                  PaymentMethodCell(
+                    viewModel: viewModel,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
+                    child: CHIButton(
+                        onTap: () {}, btnLabel: 'Search', expanded: true),
                   ),
                 ],
               ),
