@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:health_buddy/health_buddy/home/appointments/payment/payment_method.dart';
-import 'package:health_buddy/health_buddy/home/appointments/payment/total_payment.dart';
+
+import '../../../utils/chi_router.dart';
 
 import 'package:stacked/stacked.dart';
 
 import '../../../utils/constants.dart';
 import '../../../utils/widgets.dart';
 import '../doctors/doctor_cell_vu.dart';
+import 'payment_detail/payment_detail_vu.dart';
+import 'payment_method.dart';
 import 'payment_vm.dart';
+import 'total_payment.dart';
 
 class PaymentVU extends ViewModelBuilderWidget<PaymentVM> {
   const PaymentVU({Key? key}) : super(key: key);
@@ -63,7 +66,12 @@ class PaymentVU extends ViewModelBuilderWidget<PaymentVM> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 24),
                     child: CHIButton(
-                        onTap: () {}, btnLabel: 'Pay Now', expanded: true),
+                        onTap: () {
+                          CHIRouter.pushReplacement(
+                              context, const PaymentDetailVU());
+                        },
+                        btnLabel: 'Pay Now',
+                        expanded: true),
                   ),
                 ],
               ),

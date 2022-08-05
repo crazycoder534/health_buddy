@@ -315,7 +315,7 @@ class ConfirmAppointmentVU
                                   onTap: () {
                                     CHIRouter.push(context, const PaymentVU());
                                   },
-                                  btnLabel: 'btnLabel',
+                                  btnLabel: 'Confirm Appointment',
                                   expanded: true,
                                 )
                               ],
