@@ -87,29 +87,24 @@ class CHITextField extends StatelessWidget {
       padding: const EdgeInsets.all(12),
       height: 56,
       decoration: BoxDecoration(
-          color: whiteColor,
-          border: Border.all(color: grey100, width: 1.0),
-          borderRadius: BorderRadius.circular(8),
-          boxShadow: [
-            BoxShadow(
-              offset: const Offset(0, 0),
-              color: Colors.black.withOpacity(0.06),
-              blurRadius: 31,
-              spreadRadius: -6,
-            ),
-            BoxShadow(
-              offset: const Offset(0, 0),
-              color: Colors.black.withOpacity(0.06),
-              blurRadius: 31,
-              spreadRadius: -6,
-            ),
-          ]),
+        color: whiteColor,
+        border: cardBorder,
+        borderRadius: BorderRadius.circular(8),
+        boxShadow: cardShadow,
+      ),
       child: Row(
         children: [
           items != null
               ? DropdownButton(
+                  alignment: Alignment.bottomCenter,
                   underline: const SizedBox.shrink(),
-                  icon: SvgPicture.asset('assets/icons/arrow_down.svg'),
+                  icon: Row(
+                    children: [
+                      const SizedBox(width: 12),
+                      SvgPicture.asset('assets/icons/arrow_down.svg'),
+                      const SizedBox(width: 12),
+                    ],
+                  ),
                   iconSize: 8,
                   value: value,
                   items: items!.map((String item) {
@@ -338,14 +333,11 @@ class SkipButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: SizedBox(
-        height: 36,
-        child: Text(
-          'Skip',
-          style: TextStyle(fontSize: 14, color: Colors.lightBlue[500]),
-        ),
+    return TextButton(
+      onPressed: onTap,
+      child: Text(
+        'Skip',
+        style: TextStyle(fontSize: 14, color: Colors.lightBlue[500]),
       ),
     );
   }
@@ -463,6 +455,113 @@ class CHIAppBar extends StatelessWidget {
                 height: 16,
                 imageUrl: 'assets/images/app_assets/shape.svg'),
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class AppointmentCard extends StatelessWidget {
+  final String image;
+  final String name;
+  final String speciality;
+  final String location;
+  final String date;
+  final String time;
+  final String status;
+  final VoidCallback? onCompleted;
+  final VoidCallback? onBookAgain;
+  const AppointmentCard(
+      {Key? key,
+      required this.image,
+      required this.name,
+      required this.speciality,
+      required this.location,
+      required this.date,
+      required this.time,
+      required this.status,
+      this.onCompleted,
+      this.onBookAgain})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(24),
+      // height: 240,
+      decoration: BoxDecoration(
+        color: cardColor,
+        boxShadow: cardShadow,
+        border: cardBorder,
+        borderRadius: cardRadius,
+      ),
+      child: Column(
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                height: 48,
+                width: 48,
+                decoration: BoxDecoration(
+                  color: grey200,
+                  border: Border.all(color: grey100, width: 3),
+                  shape: BoxShape.circle,
+                ),
+                child: SvgPicture.asset(image),
+              ),
+              const SizedBox(width: 16),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(name, style: titleTextStyle),
+                  Text(speciality, style: subTitleTextStyle),
+                  Text(location, style: subTitleTextStyle),
+                ],
+              )
+            ],
+          ),
+          const SizedBox(height: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: [
+                  SvgPicture.asset('assets/icons/calender.svg', color: blue500),
+                  const SizedBox(height: 12),
+                  Text(date, style: subTitleTextStyle),
+                ],
+              ),
+              Column(
+                children: [
+                  SvgPicture.asset('assets/icons/time.svg'),
+                  const SizedBox(height: 12),
+                  Text(time, style: subTitleTextStyle),
+                ],
+              ),
+              Column(
+                children: [
+                  SvgPicture.asset('assets/icons/global.svg'),
+                  const SizedBox(height: 12),
+                  Text(status, style: subTitleTextStyle),
+                ],
+              )
+            ],
+          ),
+          const SizedBox(height: 8),
+          Divider(color: grey200, thickness: 1),
+          const SizedBox(height: 12),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GestureDetector(
+                  onTap: onCompleted,
+                  child: Text('Completed', style: subTitleTextStyle)),
+              GestureDetector(
+                  onTap: onBookAgain,
+                  child: Text('Book Again', style: subTitleTextStyle)),
+            ],
+          )
         ],
       ),
     );
