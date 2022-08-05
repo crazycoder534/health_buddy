@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../utils/chi_router.dart';
 import '../../utils/constants.dart';
 import '../../utils/widgets.dart';
 import '../header_cell_vu.dart';
 import 'confirm_appointments_vm.dart';
+import 'payment/payment_vu.dart';
 
 class ConfirmAppointmentVU
     extends ViewModelBuilderWidget<ConfirmAppointmentVM> {
@@ -310,7 +312,9 @@ class ConfirmAppointmentVU
                                   ],
                                 ),
                                 CHIButton(
-                                  onTap: () {},
+                                  onTap: () {
+                                    CHIRouter.push(context, const PaymentVU());
+                                  },
                                   btnLabel: 'btnLabel',
                                   expanded: true,
                                 )

@@ -37,10 +37,9 @@ class AppointmentVU extends ViewModelBuilderWidget<AppointmentsVM> {
                     height: 12,
                   ),
                   chiCustomRow(
-                      title: "My Appointments",
-                      imageUrl: "assets/images/app_assets/calender.svg",
-                      onPress: () =>
-                          CHIRouter.push(context, const PaymentVU())),
+                    title: "My Appointments",
+                    imageUrl: "assets/images/app_assets/calender.svg",
+                  ),
                   const SizedBox(
                     height: 12,
                   ),
