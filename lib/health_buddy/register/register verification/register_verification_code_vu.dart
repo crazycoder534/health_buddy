@@ -29,11 +29,11 @@ class RegisterVerifyCodeVU
               const SizedBox(height: 200),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: const [
-                  OTPBox(),
-                  OTPBox(),
-                  OTPBox(),
-                  OTPBox(),
+                children: [
+                  OTPBox(viewModel.fieldOne, true, 1),
+                  OTPBox(viewModel.fieldTwo, true, 2),
+                  OTPBox(viewModel.fieldThree, true, 3),
+                  OTPBox(viewModel.fieldFour, true, 4),
                 ],
               ),
               const Spacer(),

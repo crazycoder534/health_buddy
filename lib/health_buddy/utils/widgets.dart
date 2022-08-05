@@ -352,24 +352,39 @@ class SkipButton extends StatelessWidget {
 }
 
 class OTPBox extends StatelessWidget {
-  final int value;
-  const OTPBox({Key? key, this.value = 0}) : super(key: key);
+  final TextEditingController controller;
+  final bool autoFocus;
+  final int index;
+  const OTPBox(this.controller, this.autoFocus, this.index, {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 64.0,
-      height: 64.0,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
-          border: Border.all(
-            color: Colors.grey[400]!,
-          )),
-      child: Text(
-        value.toString(),
-        style: subTitleTextStyle.copyWith(
-            fontSize: 48, fontWeight: FontWeight.w500, letterSpacing: -2),
+    return SizedBox(
+      height: 64,
+      width: 64,
+      // decoration: BoxDecoration(
+      //     borderRadius: BorderRadius.circular(5),
+      //     border: Border.all(
+      //       color: Colors.grey[400]!,
+      //     )),
+      child: TextField(
+        autofocus: autoFocus,
+        textAlign: TextAlign.center,
+        keyboardType: TextInputType.number,
+        autofillHints: const ["0"],
+        controller: controller,
+        maxLength: 1,
+        cursorColor: Theme.of(context).primaryColor,
+        decoration: const InputDecoration(
+            border: OutlineInputBorder(),
+            counterText: '',
+            hintStyle: TextStyle(fontSize: 20.0)),
+        onChanged: (value) {
+          if (value.length == 1 && index != 4) {
+            FocusScope.of(context).nextFocus();
+          }
+        },
       ),
     );
   }
