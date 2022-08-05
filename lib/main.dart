@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:health_buddy/health_buddy/home/appointments/appointment_details/appointment_details_vu.dart';
+import 'package:health_buddy/health_buddy/onbord/onbord_vu.dart';
 
 import 'health_buddy/utils/constants.dart';
 
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: CHITheme,
-      home: const AppointmentDetailsVU(),
+      home: const OnBoardVU(),
     );
   }
 }
