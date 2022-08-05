@@ -17,11 +17,11 @@ class PaymentMethodCell extends StatelessWidget {
       children: [
         headingText(headingTxt: "Payment Method"),
         const SizedBox(
-          height: 24,
+          height: 12,
         ),
-        paymentMehod('assets/icons/promocode.svg', 'Jazz Cash', 0),
-        paymentMehod('assets/icons/promocode.svg', 'Bank Transfer', 1),
-        paymentMehod('assets/icons/promocode.svg', 'EasyPaisa', 2),
+        paymentMehod('assets/images/app_assets/heart.svg', 'Jazz Cash', 0),
+        paymentMehod('assets/images/app_assets/heart.svg', 'Bank Transfer', 1),
+        paymentMehod('assets/images/app_assets/heart.svg', 'EasyPaisa', 2),
       ],
     );
   }

@@ -55,7 +55,7 @@ class PaymentVU extends ViewModelBuilderWidget<PaymentVM> {
                     viewModel: viewModel,
                   ),
                   const SizedBox(
-                    height: 12,
+                    height: 24,
                   ),
                   PaymentMethodCell(
                     viewModel: viewModel,
@@ -63,7 +63,7 @@ class PaymentVU extends ViewModelBuilderWidget<PaymentVM> {
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 24),
                     child: CHIButton(
-                        onTap: () {}, btnLabel: 'Search', expanded: true),
+                        onTap: () {}, btnLabel: 'Pay Now', expanded: true),
                   ),
                 ],
               ),

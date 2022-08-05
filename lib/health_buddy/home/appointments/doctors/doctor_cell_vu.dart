@@ -12,18 +12,8 @@ Widget doctorListCellVu(
         decoration: BoxDecoration(
             color: whiteColor,
             borderRadius: BorderRadius.circular(12),
-            border: Border.all(
-              width: 1,
-              color: const Color(0xffEAE9F0),
-            ),
-            boxShadow: [
-              BoxShadow(
-                offset: const Offset(0, 0),
-                color: const Color(0xff000000).withOpacity(0.06),
-                blurRadius: 31,
-                spreadRadius: 10,
-              )
-            ]),
+            border: Border.all(width: 1, color: grey100),
+            boxShadow: cardShadow),
         child: Column(
           children: [
             firstSectionVU(name, speciality, fee, image),
@@ -45,13 +35,7 @@ Widget secondSectionVU(String location) {
       const SizedBox(
         width: 8.0,
       ),
-      Text(
-        location.toString(),
-        style: const TextStyle(
-            color: Color(0xff98A2B3),
-            fontSize: 12,
-            fontWeight: FontWeight.w400),
-      ),
+      Text(location.toString(), style: smallTextStyle),
       const Spacer(),
       SvgPicture.asset(
         "assets/images/app_assets/alaram.svg",
@@ -59,12 +43,9 @@ Widget secondSectionVU(String location) {
       const SizedBox(
         width: 8.0,
       ),
-      const Text(
+      Text(
         '08:00 AM - 04:00 PM',
-        style: TextStyle(
-            color: Color(0xff98A2B3),
-            fontSize: 12,
-            fontWeight: FontWeight.w400),
+        style: smallTextStyle,
       ),
     ],
   );
@@ -100,21 +81,12 @@ Row firstSectionVU(String name, String speciality, double fee, String image) {
       Column(
         children: [
           RichText(
-            text: TextSpan(
-                text: 'Rs: ',
-                style: const TextStyle(
-                    color: Color(0xff98A2B3),
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400),
-                children: [
-                  TextSpan(
-                    text: fee.toString(),
-                    style: TextStyle(
-                        color: blue500,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600),
-                  )
-                ]),
+            text: TextSpan(text: 'Rs: ', style: mediumTextStyle, children: [
+              TextSpan(
+                text: fee.toString(),
+                style: bluelightStyle,
+              )
+            ]),
           ),
           const SizedBox(
             height: 6,

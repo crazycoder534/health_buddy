@@ -64,8 +64,8 @@ class SearchDoctorVU extends ViewModelBuilderWidget<SearchDoctorVM> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text('Recommendation', style: titleTextStyle),
-                        Text('See All', style: subTitleTextStyle),
+                        Text('Recommendation', style: titleTextTwoStyle),
+                        chiTextButton(btnTitle: "See All", onTap: () {})
                       ],
                     ),
                   ),
