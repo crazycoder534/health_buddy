@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:health_buddy/health_buddy/home/appointments/categeroies/categories_page_vu.dart';
+import 'package:health_buddy/health_buddy/home/appointments/payment/payment_vu.dart';
 import '../../utils/chi_router.dart';
 import '../../utils/widgets.dart';
 import './appointments_vm.dart';
@@ -37,7 +38,9 @@ class AppointmentVU extends ViewModelBuilderWidget<AppointmentsVM> {
                   ),
                   chiCustomRow(
                       title: "My Appointments",
-                      imageUrl: "assets/images/app_assets/calender.svg"),
+                      imageUrl: "assets/images/app_assets/calender.svg",
+                      onPress: () =>
+                          CHIRouter.push(context, const PaymentVU())),
                   const SizedBox(
                     height: 12,
                   ),
