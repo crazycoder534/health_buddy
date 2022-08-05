@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../../../utils/chi_router.dart';
 import '../../../../utils/constants.dart';
 import '../../../../utils/widgets.dart';
+import '../../confirm_appointments_vu.dart';
 import '../doctor_cell_vu.dart';
 import 'search_doctor_vm.dart';
 
@@ -67,20 +69,25 @@ class SearchDoctorVU extends ViewModelBuilderWidget<SearchDoctorVM> {
                       ],
                     ),
                   ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height,
-                    child: ListView.builder(
-                      padding: const EdgeInsets.only(top: 16),
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: 20,
-                      itemBuilder: (context, index) {
-                        return doctorListCellVu(
-                            'Dr.Shah Zaman',
-                            'Psychologiest',
-                            'eClinic Lahore',
-                            2000,
-                            'assets/images/app_assets/appointment.svg');
-                      },
+                  GestureDetector(
+                    onTap: () {
+                      CHIRouter.push(context, const ConfirmAppointmentVU());
+                    },
+                    child: SizedBox(
+                      height: MediaQuery.of(context).size.height,
+                      child: ListView.builder(
+                        padding: const EdgeInsets.only(top: 16),
+                        physics: const NeverScrollableScrollPhysics(),
+                        itemCount: 20,
+                        itemBuilder: (context, index) {
+                          return doctorListCellVu(
+                              'Dr.Shah Zaman',
+                              'Psychologiest',
+                              'eClinic Lahore',
+                              2000,
+                              'assets/images/app_assets/appointment.svg');
+                        },
+                      ),
                     ),
                   ),
                 ],

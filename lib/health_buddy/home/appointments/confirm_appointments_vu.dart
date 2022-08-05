@@ -13,10 +13,9 @@ class ConfirmAppointmentVU
 
   @override
   Widget builder(BuildContext context, viewModel, Widget? child) {
-    Color clr1 = grey100;
+    Color clr1 = Colors.blue;
     Color clr2 = grey100;
     Color clr3 = grey100;
-    Color selectedWidgetTextColor = grey800;
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -167,16 +166,18 @@ class ConfirmAppointmentVU
                                         label: 'Morning',
                                         clr: clr1,
                                         isChangeClrValue:
-                                            viewModel.textColorList[0],
+                                            viewModel.sessionListBool[0],
                                         onTap: () {
                                           setState(() {
                                             clr2 = grey100;
                                             clr3 = grey100;
                                             clr1 = Colors.blue;
-                                            viewModel.textColorList[0] = true;
-                                            viewModel.textColorList[1] = false;
-                                            viewModel.textColorList[2] = false;
-                                            viewModel.notifyListeners();
+                                            viewModel.sessionListBool[0] = true;
+                                            viewModel.sessionListBool[1] =
+                                                false;
+                                            viewModel.sessionListBool[2] =
+                                                false;
+                                            // viewModel.notifyListeners();
                                           });
                                           print('object3');
                                         }),
@@ -186,16 +187,18 @@ class ConfirmAppointmentVU
                                         label: 'Afternoon',
                                         clr: clr2,
                                         isChangeClrValue:
-                                            viewModel.textColorList[1],
+                                            viewModel.sessionListBool[1],
                                         onTap: () {
                                           setState(() {
                                             clr1 = grey100;
                                             clr3 = grey100;
                                             clr2 = Colors.blue;
-                                            viewModel.textColorList[0] = false;
-                                            viewModel.textColorList[1] = true;
-                                            viewModel.textColorList[2] = false;
-                                            viewModel.notifyListeners();
+                                            viewModel.sessionListBool[0] =
+                                                false;
+                                            viewModel.sessionListBool[1] = true;
+                                            viewModel.sessionListBool[2] =
+                                                false;
+                                            // viewModel.notifyListeners();
                                           });
                                           print('object3');
                                         }),
@@ -205,16 +208,18 @@ class ConfirmAppointmentVU
                                         label: 'Evenng',
                                         clr: clr3,
                                         isChangeClrValue:
-                                            viewModel.textColorList[2],
+                                            viewModel.sessionListBool[2],
                                         onTap: () {
                                           setState(() {
                                             clr1 = grey100;
                                             clr2 = grey100;
                                             clr3 = Colors.blue;
-                                            viewModel.textColorList[0] = false;
-                                            viewModel.textColorList[1] = false;
-                                            viewModel.textColorList[2] = true;
-                                            viewModel.notifyListeners();
+                                            viewModel.sessionListBool[0] =
+                                                false;
+                                            viewModel.sessionListBool[1] =
+                                                false;
+                                            viewModel.sessionListBool[2] = true;
+                                            // viewModel.notifyListeners();
                                           });
                                           print('object3');
                                         }),
@@ -242,11 +247,66 @@ class ConfirmAppointmentVU
                                   mainAxisSpacing: 10,
                                   crossAxisCount: 3,
                                   children: <Widget>[
-                                    getGridContainer(),
-                                    getGridContainer(),
-                                    getGridContainer(),
-                                    getGridContainer(),
-                                    getGridContainer(),
+                                    getGridContainer(
+                                        label: '08:30 AM',
+                                        value: viewModel.timeListBools[0],
+                                        onTap: () {
+                                          setState(() {
+                                            viewModel.timeListBools[0] = true;
+                                            viewModel.timeListBools[1] = false;
+                                            viewModel.timeListBools[2] = false;
+                                            viewModel.timeListBools[3] = false;
+                                            viewModel.timeListBools[4] = false;
+                                          });
+                                        }),
+                                    getGridContainer(
+                                        label: '09:30 AM',
+                                        value: viewModel.timeListBools[1],
+                                        onTap: () {
+                                          setState(() {
+                                            viewModel.timeListBools[0] = false;
+                                            viewModel.timeListBools[1] = true;
+                                            viewModel.timeListBools[2] = false;
+                                            viewModel.timeListBools[3] = false;
+                                            viewModel.timeListBools[4] = false;
+                                          });
+                                        }),
+                                    getGridContainer(
+                                        label: '10:30 AM',
+                                        value: viewModel.timeListBools[2],
+                                        onTap: () {
+                                          setState(() {
+                                            viewModel.timeListBools[0] = false;
+                                            viewModel.timeListBools[1] = false;
+                                            viewModel.timeListBools[2] = true;
+                                            viewModel.timeListBools[3] = false;
+                                            viewModel.timeListBools[4] = false;
+                                          });
+                                        }),
+                                    getGridContainer(
+                                        label: '11:30 AM',
+                                        value: viewModel.timeListBools[3],
+                                        onTap: () {
+                                          setState(() {
+                                            viewModel.timeListBools[0] = false;
+                                            viewModel.timeListBools[1] = false;
+                                            viewModel.timeListBools[2] = false;
+                                            viewModel.timeListBools[3] = true;
+                                            viewModel.timeListBools[4] = false;
+                                          });
+                                        }),
+                                    getGridContainer(
+                                        label: '12:30 AM',
+                                        value: viewModel.timeListBools[4],
+                                        onTap: () {
+                                          setState(() {
+                                            viewModel.timeListBools[0] = false;
+                                            viewModel.timeListBools[1] = false;
+                                            viewModel.timeListBools[2] = false;
+                                            viewModel.timeListBools[3] = false;
+                                            viewModel.timeListBools[4] = true;
+                                          });
+                                        }),
                                   ],
                                 ),
                                 CHIButton(
@@ -269,16 +329,22 @@ class ConfirmAppointmentVU
     );
   }
 
-  Widget getGridContainer() {
-    return Container(
-      decoration: BoxDecoration(
-          // color: clr,
-          border: Border.all(color: const Color(0xffEAE9F0)),
-          borderRadius: BorderRadius.circular(15)),
-      child: const Center(
-        child: Text(
-          'label!',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+  Widget getGridContainer({String? label, bool? value, Function()? onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        decoration: BoxDecoration(
+            color: value! ? Colors.blue : Colors.white,
+            border: Border.all(color: const Color(0xffEAE9F0)),
+            borderRadius: BorderRadius.circular(15)),
+        child: Center(
+          child: Text(
+            label!,
+            style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: value ? Colors.white : grey800),
+          ),
         ),
       ),
     );

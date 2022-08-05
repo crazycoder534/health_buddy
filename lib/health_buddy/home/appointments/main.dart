@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './appointments_vu.dart';
+import 'confirm_appointments_vu.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const AppointmentVU(),
+      // home: const AppointmentVU(),
+      home: const ConfirmAppointmentVU(),
     );
   }
 }
