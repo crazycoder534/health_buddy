@@ -64,7 +64,9 @@ TextStyle bluelightStyle =
 
 // BORDERS
 OutlineInputBorder chiOutlineBorder =
-    OutlineInputBorder(borderSide: BorderSide(color: Colors.grey[400]!));
+    OutlineInputBorder(borderSide: BorderSide(color: grey400));
+Border cardBorder = Border.all(color: grey100, width: 1.0);
+BorderRadius cardRadius = BorderRadius.circular(16);
 
 // Shadow
 List<BoxShadow> cardShadow = [
