@@ -8,12 +8,6 @@ enum appointmentSelection { Online, Clinic }
 
 bottomSheet(context) {
   appointmentSelection selected = appointmentSelection.Online;
-  List<String> listViewData = [
-    "Regular",
-    "Follow up",
-    "Gold",
-  ];
-  int selectedIndex = 0;
   return showModalBottomSheet(
     context: context,
     backgroundColor: grey100,
@@ -26,10 +20,6 @@ bottomSheet(context) {
     builder: (context) {
       return StatefulBuilder(
           builder: (BuildContext context, StateSetter setState) {
-        onSelected(int index) {
-          setState(() => selectedIndex = index);
-        }
-
         return Padding(
           padding:
               const EdgeInsets.only(top: 24, left: 24, right: 24, bottom: 0),
@@ -37,29 +27,7 @@ bottomSheet(context) {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Row(
-                children: [
-                  SvgPicture.asset(
-                      "assets/images/app_assets/lessthenarrow.svg"),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  Text(
-                    "Select Mode & Type",
-                    style: titleTextStyle,
-                  ),
-                  const Spacer(),
-                  // SvgPicture.asset("assets/images/app_assets/cross.svg"),
-                  IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: const Icon(
-                        Icons.highlight_off,
-                        color: Colors.red,
-                      )),
-                ],
-              ),
+              headerCell(context),
               const SizedBox(
                 height: 16,
               ),
@@ -103,37 +71,7 @@ bottomSheet(context) {
               ),
               SizedBox(
                 height: 48,
-                child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: listViewData.length,
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(left: 8),
-                        child: GestureDetector(
-                          onTap: () => onSelected(index),
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: selectedIndex == index
-                                    ? blue500
-                                    : whiteColor,
-                                border: Border.all(color: grey100),
-                                borderRadius: BorderRadius.circular(15)),
-                            width: 90,
-                            child: Center(
-                              child: Text(
-                                listViewData[index],
-                                style: TextStyle(
-                                    color: selectedIndex == index
-                                        ? whiteColor
-                                        : grey800,
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w400),
-                              ),
-                            ),
-                          ),
-                        ),
-                      );
-                    }),
+                child: typesSelectioSection(),
               ),
               const SizedBox(
                 height: 28,
@@ -148,6 +86,31 @@ bottomSheet(context) {
         );
       });
     },
+  );
+}
+
+Widget headerCell(BuildContext context) {
+  return Row(
+    children: [
+      SvgPicture.asset("assets/images/app_assets/lessthenarrow.svg"),
+      const SizedBox(
+        width: 10,
+      ),
+      Text(
+        "Select Mode & Type",
+        style: titleTextStyle,
+      ),
+      const Spacer(),
+      // SvgPicture.asset("assets/images/app_assets/cross.svg"),
+      IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: const Icon(
+            Icons.highlight_off,
+            color: Colors.red,
+          )),
+    ],
   );
 }
 
@@ -173,53 +136,91 @@ Widget listTiles(String image, String title, Widget radioButton) {
   );
 }
 
-// Widget getContainer(
-//     {required double? width,
-//     required double? height,
-//     required String? label,
-//     // required bool? isSelected,
-//     Color? clr,
-//     required Function()? onTap}) {
-//   return GestureDetector(
-//     onTap: onTap,
-//     child: Container(
-//       decoration: BoxDecoration(
-//           color: clr,
-//           border: Border.all(color: const Color(0xffEAE9F0)),
-//           borderRadius: BorderRadius.circular(15)),
-//       height: height,
-//       width: width,
-//       child: Center(
-//         child: Text(
-//           label!,
-//           style: prefixStyle,
-//           // style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-//         ),
-//       ),
-//     ),
-//   );
-// }
+Widget typesSelectioSection() {
+  List<String> listViewData = [
+    "Regular",
+    "Follow up",
+    "Gold",
+  ];
+  int selectedIndex = 0;
+  return StatefulBuilder(builder: (BuildContext context, StateSetter setState) {
+    return ListView.builder(
+        scrollDirection: Axis.horizontal,
+        itemCount: listViewData.length,
+        itemBuilder: (context, index) {
+          onSelected(int index) {
+            setState(() => selectedIndex = index);
+          }
 
-// Widget getTypeContainer(
-//     {String? label,
-//     TextStyle? textStl,
-//     Color? bgClr,
-//     required Function()? onTap}) {
-//   return GestureDetector(
-//     onTap: onTap,
-//     child: Container(
-//       decoration: BoxDecoration(
-//           color: bgClr,
-//           border: Border.all(color: const Color(0xffEAE9F0)),
-//           borderRadius: BorderRadius.circular(15)),
-//       width: 90,
-//       child: Center(
-//         child: Text(
-//           label!,
-//           style: prefixStyle,
-//           // style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+          return Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: GestureDetector(
+              onTap: () => onSelected(index),
+              child: Container(
+                decoration: BoxDecoration(
+                    color: selectedIndex == index ? blue500 : whiteColor,
+                    border: Border.all(color: grey100),
+                    borderRadius: BorderRadius.circular(15)),
+                width: 90,
+                child: Center(
+                  child: Text(
+                    listViewData[index],
+                    style: TextStyle(
+                        color: selectedIndex == index ? whiteColor : grey800,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400),
+                  ),
+                ),
+              ),
+            ),
+          );
+        });
+  });
+}
+
+// Widget modeSection(String imageUrl, String subtitle, int value) {
+//     return Padding(
+//       padding: const EdgeInsets.only(left: 24, right: 24, bottom: 8),
+//       child: Container(
+//         decoration: BoxDecoration(
+//             color: whiteColor,
+//             borderRadius: BorderRadius.circular(12),
+//             border: Border.all(width: 1, color: grey100),
+//             boxShadow: cardShadow),
+//         child: Padding(
+//           padding: const EdgeInsets.all(16),
+//           child: Column(
+//             children: [
+//               Row(
+//                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                 children: [
+//                   SvgPicture.asset(imageUrl),
+//                   const SizedBox(
+//                     width: 8,
+//                   ),
+//                   Text(
+//                     subtitle,
+//                     // style: titleTextTwoStyle,
+//                     style: prefixStyle,
+//                   ),
+//                   const Spacer(),
+//                   Container(
+//                     width: 20,
+//                     height: 20,
+//                     child: Radio(
+//                         value: value,
+//                         fillColor:
+//                             MaterialStateColor.resolveWith((states) => blue500),
+//                         focusColor:
+//                             MaterialStateColor.resolveWith((states) => grey400),
+//                         groupValue: viewModel.radioValue,
+//                         onChanged: viewModel.handleValue),
+//                   ),
+//                 ],
+//               )
+//             ],
+//           ),
 //         ),
 //       ),
-//     ),
-//   );
-// }
+//     );
+//   }
