@@ -54,16 +54,7 @@ class DoctorDetailVU extends ViewModelBuilderWidget<DoctorDetailVM> {
             descr: "Mon - Sat ( 08:00 AM - 06:00 PM)",
           ),
           const Spacer(),
-          Padding(
-            padding: const EdgeInsets.only(left: 24, right: 24),
-            child: CHIButton(
-              onTap: () {
-                bottomSheet(context);
-              },
-              btnLabel: "Book Appointment",
-              expanded: true,
-            ),
-          )
+          detailBottomSheet(context),
         ]),
       ),
     );
@@ -77,20 +68,17 @@ class DoctorDetailVU extends ViewModelBuilderWidget<DoctorDetailVM> {
 
 Widget doctorReatingCell(String title, String subTitle, String image) {
   return Container(
-      width: 100,
-      height: 80,
-      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
+      width: 98,
+      height: 98,
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
       decoration: BoxDecoration(
           color: whiteColor,
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(
-            width: 1,
-            color: const Color(0xffEAE9F0),
-          ),
+          border: Border.all(width: 1, color: grey100),
           boxShadow: [
             BoxShadow(
               offset: const Offset(0, 0),
-              color: const Color(0xff000000).withOpacity(0.06),
+              color: grey100,
               blurRadius: 31,
               spreadRadius: 10,
             )
@@ -102,20 +90,9 @@ Widget doctorReatingCell(String title, String subTitle, String image) {
           const SizedBox(height: 12.0),
           Text(
             title,
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w300,
-              color: grey800,
-            ),
+            style: prefixStyle,
           ),
-          Text(
-            subTitle,
-            style: TextStyle(
-              fontSize: 8,
-              fontWeight: FontWeight.w100,
-              color: grey400,
-            ),
-          ),
+          Text(subTitle, style: smallTextStyle),
         ],
       ));
 }
@@ -128,7 +105,7 @@ Widget aboutSection({String? titleText, String? descr}) {
       children: [
         Text(
           titleText!,
-          style: titleTextStyle,
+          style: titleTextTwoStyle,
         ),
         Text(
           descr!,

@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
-import '../onbord/onbord_vu.dart';
+import '../onbord/pageview/onbord_vu.dart';
 import '../utils/chi_router.dart';
 import 'wellcome_vu.dart';
 
